@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   Heart,
   User,
@@ -11,9 +12,64 @@ import {
   Shield,
   Sparkles,
   GraduationCap,
+  MapPin,
+  Globe,
+  Tag,
+  MessageCircle,
 } from "lucide-react";
 
 export default function RegisterPage() {
+  const [zone, setZone] = useState("");
+  const [talent, setTalent] = useState("");
+  const [customTalent, setCustomTalent] = useState("");
+
+  // Zone options
+  const zones = [
+    "Sheger (Gelan, Sebbeta, Burayu, Laga Tafo, Sululta)",
+    "Guji",
+    "Arsi",
+    "Bale",
+    "Bedele",
+    "Borena",
+    "East Bale",
+    "East Borana",
+    "East Hararge",
+    "East Shewa",
+    "East Wellega",
+    "Horo Gudru Welega",
+    "Illu Aba Bora",
+    "Jimma",
+    "Kellem Wellega",
+    "North Shewa",
+    "South West Shewa",
+    "West Arsi",
+    "West Guji",
+    "West Hararge",
+    "West Shewa",
+    "West Wellega",
+    "Adama Special Zone",
+    "Jimma Special Zone",
+  ];
+
+  // Talent options
+  const talents = [
+    "Seenessuu",
+    "Walaloo",
+    "Taatoo",
+    "Barreessuu",
+    "Suurawwan Bocuu",
+    "Graphics Design",
+    "Seena Barsiisuu",
+    "others",
+  ];
+
+  const handleTalentChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setTalent(e.target.value);
+    if (e.target.value !== "others") {
+      setCustomTalent("");
+    }
+  };
+
   return (
     <div className="min-h-screen font-sans text-gray-800 relative">
       {/* Background Image */}
@@ -89,18 +145,21 @@ export default function RegisterPage() {
             target="_blank"
             className="flex flex-col gap-5"
           >
+            {/* Full Name - Required */}
             <div className="relative">
               <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
                 <User size={18} />
               </div>
               <input
                 name="entry.XXXX"
-                placeholder="Full Name"
+                type="text"
+                placeholder="Full Name *"
                 className="w-full p-3 pl-10 rounded-xl border border-gray-200 bg-white/80 focus:bg-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition-all"
                 required
               />
             </div>
 
+            {/* Email - Required */}
             <div className="relative">
               <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
                 <Mail size={18} />
@@ -108,43 +167,118 @@ export default function RegisterPage() {
               <input
                 name="entry.YYYY"
                 type="email"
-                placeholder="Email Address"
+                placeholder="Email Address *"
                 className="w-full p-3 pl-10 rounded-xl border border-gray-200 bg-white/80 focus:bg-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition-all"
                 required
               />
             </div>
 
+            {/* Zone - Required Dropdown */}
+            <div className="relative">
+              <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                <Globe size={18} />
+              </div>
+              <select
+                name="entry.ZONE"
+                value={zone}
+                onChange={(e) => setZone(e.target.value)}
+                className="w-full p-3 pl-10 rounded-xl border border-gray-200 bg-white/80 focus:bg-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition-all appearance-none cursor-pointer"
+                required
+              >
+                <option value="">Select Zone *</option>
+                {zones.map((z) => (
+                  <option key={z} value={z}>
+                    {z}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Woreda - Required Text Input */}
+            <div className="relative">
+              <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                <MapPin size={18} />
+              </div>
+              <input
+                name="entry.WOREDA"
+                type="text"
+                placeholder="Woreda *"
+                className="w-full p-3 pl-10 rounded-xl border border-gray-200 bg-white/80 focus:bg-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition-all"
+                required
+              />
+            </div>
+
+            {/* Telegram Username - Optional */}
+            <div className="relative">
+              <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                <MessageCircle size={18} />
+              </div>
+              <input
+                name="entry.TELEGRAM"
+                type="text"
+                placeholder="Telegram Username (Optional)"
+                className="w-full p-3 pl-10 rounded-xl border border-gray-200 bg-white/80 focus:bg-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition-all"
+              />
+            </div>
+
+            {/* Phone No - Optional */}
             <div className="relative">
               <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
                 <Phone size={18} />
               </div>
               <input
-                name="entry.ZZZZ"
-                placeholder="Phone Number"
+                name="entry.PHONE"
+                type="tel"
+                placeholder="Phone Number (Optional)"
                 className="w-full p-3 pl-10 rounded-xl border border-gray-200 bg-white/80 focus:bg-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition-all"
-                required
               />
             </div>
 
+            {/* Talent - Dropdown */}
             <div className="relative">
               <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                <BookOpen size={18} />
+                <Tag size={18} />
               </div>
-              <input
-                name="entry.AAAA"
-                placeholder="Department"
-                className="w-full p-3 pl-10 rounded-xl border border-gray-200 bg-white/80 focus:bg-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition-all"
-                required
-              />
+              <select
+                name="entry.TALENT"
+                value={talent}
+                onChange={handleTalentChange}
+                className="w-full p-3 pl-10 rounded-xl border border-gray-200 bg-white/80 focus:bg-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition-all appearance-none cursor-pointer"
+              >
+                <option value="">Select Talent (Optional)</option>
+                {talents.map((t) => (
+                  <option key={t} value={t}>
+                    {t.charAt(0).toUpperCase() + t.slice(1)}
+                  </option>
+                ))}
+              </select>
             </div>
 
+            {/* Custom Talent Input - Shows only when "others" is selected */}
+            {talent === "others" && (
+              <div className="relative">
+                <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                  <BookOpen size={18} />
+                </div>
+                <input
+                  name="entry.CUSTOM_TALENT"
+                  type="text"
+                  placeholder="Please specify your talent"
+                  value={customTalent}
+                  onChange={(e) => setCustomTalent(e.target.value)}
+                  className="w-full p-3 pl-10 rounded-xl border border-gray-200 bg-white/80 focus:bg-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition-all"
+                />
+              </div>
+            )}
+
+            {/* Comment */}
             <div className="relative">
               <div className="absolute left-3 top-4 text-gray-400">
                 <MessageSquare size={18} />
               </div>
               <textarea
-                name="entry.BBBB"
-                placeholder="Role"
+                name="entry.COMMENT"
+                placeholder="Comment (if any)"
                 rows={4}
                 className="w-full p-3 pl-10 rounded-xl border border-gray-200 bg-white/80 focus:bg-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition-all resize-none"
               ></textarea>

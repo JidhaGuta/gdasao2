@@ -15,6 +15,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function AboutPage() {
   return (
@@ -24,17 +25,34 @@ export default function AboutPage() {
       {/* Overlay - Updated to teal/cyan/emerald */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-teal-50/90 via-cyan-50/90 to-emerald-50/90" />
 
-      {/* HERO SECTION */}
-      <section className="text-center py-24 px-6 relative">
+      {/* HERO SECTION WITH BACKGROUND IMAGE */}
+      <section className="relative w-full min-h-[500px] md:min-h-[600px] overflow-hidden">
+        {/* Hero Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/about-bg.jpg"
+            alt="About GDASAO"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Dark Overlay for better text visibility */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-black/30"></div>
+        </div>
 
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600 text-transparent bg-clip-text">
-          About GDASAO
-        </h1>
-        <p className="max-w-2xl mx-auto text-lg text-gray-600 leading-relaxed">
-          Discover our story, mission, and the impact we're making in
-          communities worldwide. We're building a better future through
-          collaboration, innovation, and shared values.
-        </p>
+        {/* Hero Content Overlay */}
+        <div className="relative h-full flex flex-col items-center justify-center text-center px-6 py-24 md:py-32 max-w-5xl mx-auto">
+          <div className="animate-fade-in-up">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-2xl">
+              About GDASAO
+            </h1>
+            <p className="max-w-3xl mx-auto text-lg md:text-xl text-white/95 leading-relaxed drop-shadow-lg">
+              Discover our story, mission, and the impact we're making in
+              communities worldwide. We're building a better future through
+              collaboration, innovation, and shared values.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* FULL DESCRIPTION SECTION */}
@@ -49,10 +67,11 @@ export default function AboutPage() {
             </h2>
           </div>
           <p className="text-gray-600 leading-relaxed text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            GDASAO (The Gumii Dagaagina Aadaa,Seenaa fi Afaan Oromoo) of Jimma
+            University is based on Article 39/2 of the Federal Constitution of
+            Ethiopia which states that every nation, ethnic group and people of
+            Ethiopia has the right to speak , write and develop their language
+            It was founded in Jimma in 2005 Ethiopian calender.
           </p>
         </div>
       </section>
@@ -90,9 +109,9 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold text-gray-800">Our Vision</h2>
             </div>
             <p className="text-gray-600 leading-relaxed text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+              Research the cultures that are currently going to disappear and
+              work on the history of the heroes whose blood and bones have been
+              used for their people.
             </p>
             <div className="mt-4 flex items-center gap-2 text-teal-600">
               <TrendingUp size={16} />
@@ -230,7 +249,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CORE VALUES SECTION - New addition */}
+      {/* CORE VALUES SECTION */}
       <section className="py-16 px-6 max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
@@ -281,7 +300,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* IMPACT STATS SECTION - Updated colors */}
+      {/* IMPACT STATS SECTION */}
       <section className="py-20 px-6 bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600 text-white text-center">
         <h2 className="text-3xl md:text-5xl font-bold mb-6">
           Our Impact at a Glance
@@ -325,7 +344,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA SECTION - Updated colors */}
+      {/* CTA SECTION */}
       <section className="py-20 px-6 text-center bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600 text-white">
         <Heart className="mx-auto mb-4" size={48} />
         <h2 className="text-3xl md:text-5xl font-bold mb-4">
@@ -353,6 +372,23 @@ export default function AboutPage() {
           ✨ Free registration • Instant access • Join today
         </p>
       </section>
+
+      {/* Add custom animations */}
+      <style jsx>{`
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out forwards;
+        }
+      `}</style>
     </div>
   );
 }

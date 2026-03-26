@@ -5,13 +5,12 @@ import {
   Users,
   Globe,
   Calendar,
-  Star,
-  Sparkles,
-  ArrowRight,
-  TrendingUp,
   Award,
+  Sparkles,
+  TrendingUp,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -21,28 +20,46 @@ export default function HomePage() {
       {/* Overlay - Updated to teal/cyan/emerald gradient */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-teal-50/90 via-cyan-50/90 to-emerald-50/90" />
 
-      {/* HERO SECTION */}
-      <section className="text-center py-24 px-6 relative">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600 text-transparent bg-clip-text">
-          Welcome to GDASAO
-        </h1>
-        <p className="max-w-2xl mx-auto text-lg text-gray-600 leading-relaxed">
-          Join a vibrant community dedicated to innovation, culture, and
-          positive change. Together, we shape the future through collaboration
-          and shared vision.
-        </p>
+      {/* HERO SECTION WITH FULL WIDTH IMAGE AND OVERLAY TEXT */}
+      <section className="relative w-full h-screen md:h-[90vh] min-h-[600px] overflow-hidden">
+        {/* Hero Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/bg.jpg"
+            alt="GDASAO Community"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Dark Overlay for better text visibility */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20"></div>
+        </div>
 
-        <div className="mt-8 flex justify-center gap-4 flex-wrap">
-          <Link href="/register">
-            <button className="px-8 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600 hover:scale-105 hover:shadow-xl transition-all duration-300">
-              Get Started
-            </button>
-          </Link>
-          <Link href="@https://t.me/gdasaoJIT2025" target="_blank">
-            <button className="px-8 py-3 rounded-xl border-2 border-teal-500 text-teal-600 hover:bg-teal-50 hover:border-teal-600 transition-all duration-300 font-semibold">
-              Join Telegram
-            </button>
-          </Link>
+        {/* Hero Content Overlay - Centered */}
+        <div className="relative h-full flex flex-col items-center justify-center text-center px-6 max-w-6xl mx-auto">
+          <div className="animate-fade-in-up">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
+              Welcome to GDASAO
+            </h1>
+            <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/90 leading-relaxed drop-shadow-lg">
+              Join a vibrant community dedicated to innovation, culture, and
+              positive change. Together, we shape the future through
+              collaboration and shared vision.
+            </p>
+
+            <div className="mt-10 flex justify-center gap-4 flex-wrap">
+              <Link href="/register">
+                <button className="px-8 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-teal-500 via-cyan-500 to-emerald-500 hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
+                  Get Started
+                </button>
+              </Link>
+              <Link href="https://t.me/gdasaoJIT2025" target="_blank">
+                <button className="px-8 py-3 rounded-xl border-2 border-white text-white hover:bg-white hover:text-teal-600 transition-all duration-300 font-semibold backdrop-blur-sm">
+                  Join Telegram
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -54,8 +71,8 @@ export default function HomePage() {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full mx-auto"></div>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Empowering communities through education, technology, and cultural
-            exchange
+            Empowering communities Educating Generation, Engagement, and
+            cultural exchange
           </p>
         </div>
 
@@ -65,11 +82,11 @@ export default function HomePage() {
               <Sparkles className="text-white" size={28} />
             </div>
             <h3 className="text-xl font-bold text-gray-800 mb-2">
-              Innovation Hub
+              Educating Generation
             </h3>
             <p className="text-gray-600">
-              Fostering creativity and technological advancement through
-              workshops and mentorship.
+              Since its inception, it has been working with its members and
+              supporters to educate and inform tomorrow's generation.
             </p>
           </div>
 
@@ -78,11 +95,11 @@ export default function HomePage() {
               <Users className="text-white" size={28} />
             </div>
             <h3 className="text-xl font-bold text-gray-800 mb-2">
-              Community Building
+              GDASAO store
             </h3>
             <p className="text-gray-600">
-              Creating meaningful connections and fostering a supportive
-              environment.
+              GDASAO members are buying pictures of Oromo heroes and various
+              books on culture, history and novels and offering them to members.
             </p>
           </div>
 
@@ -90,12 +107,11 @@ export default function HomePage() {
             <div className="w-16 h-16 mx-auto rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <TrendingUp className="text-white" size={28} />
             </div>
-            <h3 className="text-xl font-bold text-gray-800 mb-2">
-              Leadership Development
-            </h3>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">Engagement</h3>
             <p className="text-gray-600">
-              Empowering future leaders through training, events, and real-world
-              projects.
+              GDASAO has been the best for her members on her basic goal of
+              identity, unity and Oromoness and has published a book called
+              Hayyuu Bara Keenyaa and Faana Seenaa.
             </p>
           </div>
         </div>
@@ -265,6 +281,23 @@ export default function HomePage() {
           ✨ Free registration • Instant access • Join today
         </p>
       </section>
+
+      {/* Add custom animations */}
+      <style jsx>{`
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out forwards;
+        }
+      `}</style>
     </div>
   );
 }

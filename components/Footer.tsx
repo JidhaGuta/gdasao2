@@ -96,7 +96,7 @@ export default function Footer() {
           <p className="text-sm text-gray-400">
             © {currentYear} GDASAO. All rights reserved
             <br />
-            Designed with by Jidha Guta
+            Designed by Jidha Guta
           </p>
         </div>
       </div>
