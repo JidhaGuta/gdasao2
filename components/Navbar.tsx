@@ -4,13 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { useLanguage } from "../context/LanguageContext";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
 
-  const { lang, setLang } = useLanguage();
+  // const { lang, setLang } = useLanguage();
 
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-xl bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 border-b border-white/10 shadow-2xl">
@@ -105,7 +104,7 @@ export default function Navbar() {
           </Link>
 
           {/* 🌍 Language Switcher (DESKTOP) */}
-          <select
+          {/* <select
             value={lang}
             onChange={(e) => setLang(e.target.value as "en" | "om" | "am")}
             className="ml-3 px-3 py-2 rounded-lg border border-white/20 text-sm bg-slate-800/50 backdrop-blur-sm text-gray-200 hover:bg-slate-700/50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
@@ -113,7 +112,7 @@ export default function Navbar() {
             <option value="en">EN</option>
             <option value="om">OM</option>
             <option value="am">AM</option>
-          </select>
+          </select> */}
         </div>
 
         {/* Mobile Button */}
@@ -181,7 +180,7 @@ export default function Navbar() {
             </Link>
 
             {/* 🌍 Language Switcher (MOBILE) */}
-            <select
+            {/* <select
               value={lang}
               onChange={(e) => setLang(e.target.value as "en" | "om" | "am")}
               className="mt-3 px-4 py-2 border border-white/20 rounded-xl bg-slate-800/50 backdrop-blur-sm text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -189,7 +188,7 @@ export default function Navbar() {
               <option value="en">English</option>
               <option value="om">Afaan Oromo</option>
               <option value="am">Amharic</option>
-            </select>
+            </select> */}
           </div>
         </div>
       )}

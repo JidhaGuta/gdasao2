@@ -1,25 +1,28 @@
+// app/layout.tsx (Original without language support)
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import { LanguageProvider } from "../context/LanguageContext";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
-export const metadata = {
-  title: "GDASAO",
-  description: "GDASAO Club Website",
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "GDASAO - Registration",
+  description: "Join GDASAO community - Register for events and activities",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <body className="font-sans bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 text-gray-800">
-        {/* 🌍 Language Provider wraps everything */}
-        <LanguageProvider>
-          <Navbar />
-
-          <main>{children}</main>
-
-          <Footer />
-        </LanguageProvider>
+      <body className={inter.className}>
+        <Navbar />
+        <main className="min-h-screen">{children}</main>
+        <Footer />
       </body>
     </html>
   );
