@@ -7,6 +7,7 @@ export default function RegisterPage() {
     fullName: "",
     email: "",
     gender: "",
+    batch: "",
     zone: "",
     woreda: "",
     telegram: "",
@@ -25,6 +26,7 @@ export default function RegisterPage() {
     fullName?: string;
     email?: string;
     gender?: string;
+    batch?: string;
     zone?: string;
     woreda?: string;
     talent?: string;
@@ -64,6 +66,14 @@ export default function RegisterPage() {
     "Graphics Design",
     "Seena Barsiisuu",
     "others",
+  ];
+
+  const batches = [
+    "Waggaa 1ffaa",
+    "Waggaa 2ffaa",
+    "Waggaa 3ffaa",
+    "Waggaa 4ffaa",
+    "Waggaa 5ffaa",
   ];
 
   // Auto-dismiss message after 5 seconds
@@ -126,6 +136,7 @@ export default function RegisterPage() {
       fullName?: string;
       email?: string;
       gender?: string;
+      batch?: string;
       zone?: string;
       woreda?: string;
       talent?: string;
@@ -136,6 +147,7 @@ export default function RegisterPage() {
     else if (!/\S+@\S+\.\S+/.test(formData.email))
       errors.email = "Email is invalid";
     if (!formData.gender) errors.gender = "Please select your gender";
+    if (!formData.batch) errors.batch = "Please select your batch/year";
     if (!formData.zone.trim()) errors.zone = "Please select your zone";
     if (!formData.woreda.trim()) errors.woreda = "Woreda is required";
     if (!formData.talent.trim())
@@ -156,7 +168,7 @@ export default function RegisterPage() {
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbwjOYOym6kasEJfclMi9yQjsXROnfCvvWMdxiW24evNR7YVLYgmagRuGX1v_P907pLmWQ/exec",
+        "https://script.google.com/macros/s/AKfycbxZF7Q0U23GYOTuIWdCbufZ3f0g0KjMflr8GLwHxW8b-xisTTLNtA25K2khw0h7QpWrNA/exec",
         {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -182,6 +194,7 @@ export default function RegisterPage() {
           fullName: "",
           email: "",
           gender: "",
+          batch: "",
           zone: "",
           woreda: "",
           telegram: "",
@@ -240,9 +253,7 @@ export default function RegisterPage() {
           <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-1">
             Join GDASAO
           </h1>
-          <p className="text-gray-600 text-sm">
-            Become part of our vibrant community
-          </p>
+          <p className="text-gray-600 text-sm">Become part of our community</p>
         </div>
 
         {/* Form Card */}
@@ -385,6 +396,65 @@ export default function RegisterPage() {
                 <p className="mt-1 text-xs text-red-500">
                   {fieldErrors.gender}
                 </p>
+              )}
+            </div>
+
+            {/* Batch */}
+            <div>
+              <label className="block text-gray-700 text-sm font-medium mb-1.5">
+                Batch <span className="text-red-500">*</span>
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <svg
+                    className="h-4 w-4 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <select
+                  name="batch"
+                  value={formData.batch}
+                  onChange={handleChange}
+                  className={`w-full pl-9 pr-8 py-2.5 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-800 appearance-none text-sm ${
+                    fieldErrors.batch
+                      ? "border-red-400 bg-red-50"
+                      : "border-gray-300"
+                  }`}
+                >
+                  <option value="">Select batch/year</option>
+                  {batches.map((batch) => (
+                    <option key={batch} value={batch}>
+                      {batch}
+                    </option>
+                  ))}
+                </select>
+                <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                  <svg
+                    className="h-4 w-4 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
+              </div>
+              {fieldErrors.batch && (
+                <p className="mt-1 text-xs text-red-500">{fieldErrors.batch}</p>
               )}
             </div>
 

@@ -33,9 +33,9 @@ export default function Footer() {
 
           {/* Description */}
           <p className="text-gray-300 max-w-2xl mx-auto mb-8 text-base md:text-lg leading-relaxed">
-            GDASAO is a student club promoting community, culture, and learning.
-            Join us in our journey to create meaningful impact and build lasting
-            connections.
+            GDASAO is promoting Oromo Culture, History and Afaan Oromoo
+            language. Join us in our journey to create meaningful impact and
+            show our cultures to the world.
           </p>
 
           {/* Social Media Icons - Centered with gap */}
@@ -51,7 +51,7 @@ export default function Footer() {
             </Link>
 
             <Link
-              href="https://youtube.com/yourchannel"
+              href="https://www.youtube.com/@GDASAOJIT-CAMPUS"
               target="_blank"
               className="group relative"
             >
@@ -61,7 +61,7 @@ export default function Footer() {
             </Link>
 
             <Link
-              href="https://www.tiktok.com/@yourprofile"
+              href="https://www.tiktok.com/@gdasao.jitcampus"
               target="_blank"
               className="group relative"
             >
@@ -71,7 +71,7 @@ export default function Footer() {
             </Link>
 
             <Link
-              href="https://instagram.com/yourprofile"
+              href="https://www.instagram.com/gdasao.jit_campus"
               target="_blank"
               className="group relative"
             >
@@ -80,7 +80,7 @@ export default function Footer() {
               </div>
             </Link>
 
-            <Link
+            {/* <Link
               href="https://twitter.com/yourprofile"
               target="_blank"
               className="group relative"
@@ -88,7 +88,7 @@ export default function Footer() {
               <div className="w-12 h-12 rounded-full bg-white/10 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg">
                 <FaTwitter className="text-2xl text-gray-300 group-hover:text-white transition-colors" />
               </div>
-            </Link>
+            </Link> */}
           </div>
         </div>
         {/* Bottom Bar - Centered */}
@@ -96,7 +96,7 @@ export default function Footer() {
           <p className="text-sm text-gray-400">
             © {currentYear} GDASAO. All rights reserved
             <br />
-            Designed by Jidha Guta
+            Designed and Developed by Jidha Guta
           </p>
         </div>
       </div>

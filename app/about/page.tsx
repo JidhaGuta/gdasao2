@@ -48,8 +48,8 @@ export default function AboutPage() {
             </h1>
             <p className="max-w-3xl mx-auto text-lg md:text-xl text-white/95 leading-relaxed drop-shadow-lg">
               Discover our story, mission, and the impact we're making in
-              communities worldwide. We're building a better future through
-              collaboration, innovation, and shared values.
+              communities. We're building a better future through collaboration
+              and shared values.
             </p>
           </div>
         </div>
@@ -122,99 +122,6 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
-
-      {/* OBJECTIVES / GOALS SECTION */}
-      <section className="py-8 px-6 max-w-6xl mx-auto">
-        <div className="bg-white/70 backdrop-blur rounded-2xl shadow-lg p-8 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-xl">
-              <Star className="text-white" size={24} />
-            </div>
-            <h2 className="text-3xl font-bold text-gray-800">
-              Objectives & Goals
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3 group">
-                <span className="flex-shrink-0 w-6 h-6 mt-1 rounded-full bg-gradient-to-r from-teal-500 to-cyan-500 flex items-center justify-center">
-                  <svg
-                    className="w-3 h-3 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                <span className="text-gray-700 text-lg">
-                  Objective 1 - Community Engagement
-                </span>
-              </li>
-              <li className="flex items-start gap-3 group">
-                <span className="flex-shrink-0 w-6 h-6 mt-1 rounded-full bg-gradient-to-r from-teal-500 to-cyan-500 flex items-center justify-center">
-                  <svg
-                    className="w-3 h-3 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                <span className="text-gray-700 text-lg">
-                  Objective 2 - Educational Programs
-                </span>
-              </li>
-            </ul>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3 group">
-                <span className="flex-shrink-0 w-6 h-6 mt-1 rounded-full bg-gradient-to-r from-cyan-500 to-emerald-500 flex items-center justify-center">
-                  <svg
-                    className="w-3 h-3 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                <span className="text-gray-700 text-lg">
-                  Objective 3 - Global Collaboration
-                </span>
-              </li>
-              <li className="flex items-start gap-3 group">
-                <span className="flex-shrink-0 w-6 h-6 mt-1 rounded-full bg-gradient-to-r from-cyan-500 to-emerald-500 flex items-center justify-center">
-                  <svg
-                    className="w-3 h-3 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                <span className="text-gray-700 text-lg">
-                  Objective 4 - Sustainable Impact
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
       {/* HISTORY SECTION */}
       <section className="py-8 px-6 max-w-6xl mx-auto">
         <div className="bg-white/70 backdrop-blur rounded-2xl shadow-lg p-8 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
@@ -225,24 +132,24 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-gray-800">Our History</h2>
           </div>
           <p className="text-gray-600 leading-relaxed text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
+            Since its formation, GDASAO has actively engaged in various
+            activities including supporting students through educational
+            programs, organizing cultural events to preserve Oromo traditions,
+            providing community outreach initiatives, and creating networking
+            opportunities for members across different zones and beyond. Through
+            its dedicated leadership and passionate members, GDASAO has grown
+            into a vibrant community that empowers its members, promotes
+            cultural identity, and contributes to the development of its people
+            both locally and globally.
           </p>
           <div className="mt-6 grid grid-cols-3 gap-4 pt-4 border-t border-gray-200">
             <div className="text-center">
-              <div className="text-teal-600 font-bold text-xl">2023</div>
+              <div className="text-teal-600 font-bold text-xl">2005 E.C</div>
               <div className="text-xs text-gray-500">Founded</div>
             </div>
+
             <div className="text-center">
-              <div className="text-teal-600 font-bold text-xl">2024</div>
-              <div className="text-xs text-gray-500">First Global Event</div>
-            </div>
-            <div className="text-center">
-              <div className="text-teal-600 font-bold text-xl">2025</div>
+              <div className="text-teal-600 font-bold text-xl">2018 E.C</div>
               <div className="text-xs text-gray-500">500+ Members</div>
             </div>
           </div>
@@ -270,7 +177,8 @@ export default function AboutPage() {
               Community First
             </h3>
             <p className="text-gray-600 text-sm">
-              Building strong, supportive connections
+              Building strong, supportive connections with other GDASAO branches
+              and the wider community.
             </p>
           </div>
 
@@ -282,7 +190,7 @@ export default function AboutPage() {
               Continuous Learning
             </h3>
             <p className="text-gray-600 text-sm">
-              Growing together through knowledge
+              Growing together through Sharing culture, history and language
             </p>
           </div>
 
@@ -294,7 +202,8 @@ export default function AboutPage() {
               Global Perspective
             </h3>
             <p className="text-gray-600 text-sm">
-              Embracing diversity and inclusion
+              Embracing diversity and inclusion to create a welcoming
+              environment for all GDASAO members worldwide.
             </p>
           </div>
         </div>
@@ -303,10 +212,11 @@ export default function AboutPage() {
       {/* IMPACT STATS SECTION */}
       <section className="py-20 px-6 bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600 text-white text-center">
         <h2 className="text-3xl md:text-5xl font-bold mb-6">
-          Our Impact at a Glance
+          Our Impact from 2005 E.C to 2018 E.C
         </h2>
         <p className="text-white/90 mb-12 max-w-2xl mx-auto">
-          Making a measurable difference in communities worldwide
+          Making a measurable difference in communities through our programs,
+          events, and initiatives. Here are some of our key impact metrics:
         </p>
 
         <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -320,25 +230,17 @@ export default function AboutPage() {
 
           <div>
             <div className="w-16 h-16 mx-auto bg-white/20 rounded-2xl flex items-center justify-center mb-4 backdrop-blur-sm">
-              <Globe size={32} />
-            </div>
-            <h3 className="text-3xl font-bold">10+</h3>
-            <p className="text-white/80">Countries Reached</p>
-          </div>
-
-          <div>
-            <div className="w-16 h-16 mx-auto bg-white/20 rounded-2xl flex items-center justify-center mb-4 backdrop-blur-sm">
               <Calendar size={32} />
             </div>
             <h3 className="text-3xl font-bold">20+</h3>
-            <p className="text-white/80">Annual Events</p>
+            <p className="text-white/80">Total Events</p>
           </div>
 
           <div>
             <div className="w-16 h-16 mx-auto bg-white/20 rounded-2xl flex items-center justify-center mb-4 backdrop-blur-sm">
               <Star size={32} />
             </div>
-            <h3 className="text-3xl font-bold">3+</h3>
+            <h3 className="text-3xl font-bold">12+</h3>
             <p className="text-white/80">Years of Impact</p>
           </div>
         </div>
@@ -368,9 +270,7 @@ export default function AboutPage() {
           </Link>
         </div>
 
-        <p className="mt-4 text-sm">
-          ✨ Free registration • Instant access • Join today
-        </p>
+        <p className="mt-4 text-sm">Join today</p>
       </section>
 
       {/* Add custom animations */}

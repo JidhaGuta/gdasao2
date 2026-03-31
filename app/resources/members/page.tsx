@@ -6,86 +6,96 @@ import Image from "next/image";
 // Define types for members
 type Member = {
   name: string;
-  role: string;
   image: string;
-  skill?: string; // Optional skill for members
 };
 
 // Sample data - update with your actual data
-const members = {
-  president: [
-    {
-      name: "Bona Teshale",
-      role: "President(2018/2019)",
-      image: "/members/bona.jpg",
-    },
-  ],
-  executive: [
-    { name: "Jane Smith", role: "Vice President", image: "/members/vice.jpg" },
-    { name: "Bob Johnson", role: "Secretary", image: "/members/secretary.jpg" },
-    { name: "Alice Brown", role: "Councilor", image: "/members/councilor.jpg" },
-  ],
-  abbaGadaas: [
-    {
-      name: "Abba Gadaa 1",
-      role: "Abba Gadaa",
-      image: "/members/abbagada1.jpg",
-    },
-    {
-      name: "Abba Gadaa 2",
-      role: "Abba Gadaa",
-      image: "/members/abbagada2.jpg",
-    },
-    {
-      name: "Abba Gadaa 3",
-      role: "Abba Gadaa",
-      image: "/members/abbagada3.jpg",
-    },
-    {
-      name: "Abba Gadaa 4",
-      role: "Abba Gadaa",
-      image: "/members/abbagada4.jpg",
-    },
-  ],
-  skilledMembers: [
-    {
-      name: "Tech Expert",
-      role: "Member",
-      image: "/members/tech.jpg",
-      skill: "Software Development",
-    },
-    {
-      name: "Cultural Leader",
-      role: "Member",
-      image: "/members/cultural.jpg",
-      skill: "Cultural Preservation",
-    },
-    {
-      name: "Community Organizer",
-      role: "Member",
-      image: "/members/community.jpg",
-      skill: "Community Outreach",
-    },
-    {
-      name: "Educator",
-      role: "Member",
-      image: "/members/educator.jpg",
-      skill: "Education & Training",
-    },
-    {
-      name: "Healthcare Advocate",
-      role: "Member",
-      image: "/members/health.jpg",
-      skill: "Health Services",
-    },
-    {
-      name: "Legal Expert",
-      role: "Member",
-      image: "/members/legal.jpg",
-      skill: "Legal Advisory",
-    },
-  ],
-};
+const members: Member[] = [
+  {
+    name: "Bona",
+    image: "/members/bona.jpg",
+  },
+  {
+    name: "Oljira",
+    image: "/members/oljira.jpg",
+  },
+  {
+    name: "Isa",
+    image: "/members/isa.jpg",
+  },
+  {
+    name: "Yonas",
+    image: "/members/yonas.jpg",
+  },
+  {
+    name: "Naol",
+    image: "/members/naol.jpg",
+  },
+  {
+    name: "Tolera",
+    image: "/members/tolera.jpg",
+  },
+  {
+    name: "Jidha",
+    image: "/members/jidha.jpg",
+  },
+  {
+    name: "Latera",
+    image: "/members/latera.jpg",
+  },
+  {
+    name: "Samuel",
+    image: "/members/samuel.jpg",
+  },
+  {
+    name: "Lensa",
+    image: "/members/lensa.jpg",
+  },
+  {
+    name: "Falmi",
+    image: "/members/falmi.jpg",
+  },
+  {
+    name: "Bilen",
+    image: "/members/bilen.jpg",
+  },
+  {
+    name: "Abdi",
+    image: "/members/abdi.jpg",
+  },
+  {
+    name: "Sadik",
+    image: "/members/sadik.jpg",
+  },
+  {
+    name: "Tolera",
+    image: "/members/kuku.jpg",
+  },
+  {
+    name: "",
+    image: "/members/gamta1.jpg",
+  },
+  {
+    name: "",
+    image: "/members/gamta2.jpg",
+  },
+  {
+    name: "",
+    image: "/members/gamta3.jpg",
+  },
+  {
+    name: "",
+    image: "/members/gamta4.jpg",
+  },
+  {
+    name: "",
+    image: "/members/gamta5.jpg",
+  },
+  {
+    name: "",
+    image: "/members/gamta5.jpg",
+  },
+];
 
 export default function MembersPage() {
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
@@ -94,30 +104,31 @@ export default function MembersPage() {
     setImageErrors((prev) => ({ ...prev, [key]: true }));
   };
 
-  // Helper function to render regular member card
-  const renderMemberCard = (
-    member: Member,
-    key: string,
-    showSkill: boolean = false,
-  ) => (
+  // Helper function to render member card
+  const renderMemberCard = (member: Member, key: string) => (
     <div
       key={key}
-      className="bg-white/70 backdrop-blur rounded-2xl shadow-lg hover:-translate-y-2 hover:shadow-xl transition-all duration-300 p-6 text-center group"
+      className="group relative bg-white rounded-2xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
     >
-      {/* Profile Image */}
-      <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300">
+      {/* Full Image Container - Fixed aspect ratio 1:1 for square images */}
+      <div className="relative w-full aspect-square overflow-hidden">
         {!imageErrors[key] ? (
-          <Image
-            src={member.image}
-            alt={member.name}
-            fill
-            className="object-cover group-hover:scale-110 transition-transform duration-500"
-            onError={() => handleImageError(key)}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
+          <>
+            <Image
+              src={member.image}
+              alt={member.name}
+              fill
+              className="object-contain group-hover:scale-105 transition-transform duration-700 bg-gray-100"
+              onError={() => handleImageError(key)}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={key === "member-0" || key === "member-1"}
+            />
+            {/* Gradient Overlay - Always visible for better text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+          </>
         ) : (
-          <div className="w-full h-full bg-gradient-to-r from-teal-500 to-emerald-500 flex flex-col items-center justify-center text-white">
-            <div className="text-6xl font-bold mb-2">
+          <div className="w-full h-full bg-gradient-to-br from-teal-500 to-emerald-500 flex flex-col items-center justify-center text-white">
+            <div className="text-7xl font-bold mb-2">
               {member.name
                 .split(" ")
                 .map((n) => n[0])
@@ -126,22 +137,14 @@ export default function MembersPage() {
             <p className="text-sm">Image not available</p>
           </div>
         )}
-
-        {/* Overlay on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-          <span className="text-white text-sm font-medium bg-white/20 backdrop-blur-md px-4 py-2 rounded-full">
-            View Profile
-          </span>
-        </div>
       </div>
 
-      <h3 className="mt-4 font-bold text-xl text-gray-800">{member.name}</h3>
-      <p className="text-teal-600 text-sm font-medium mt-1">{member.role}</p>
-      {showSkill && member.skill && (
-        <p className="text-gray-500 text-xs mt-1">{member.skill}</p>
-      )}
-      <div className="mt-4 pt-4 border-t border-gray-200">
-        <button className="text-teal-600 hover:text-teal-700 text-sm font-medium inline-flex items-center gap-1 transition-colors group/btn">
+      {/* Name Section - Always visible with improved positioning */}
+      <div className="absolute bottom-0 left-0 right-0 p-6 pb-8">
+        <h3 className="text-white font-bold text-xl group-hover:translate-x-1 transition-transform duration-300">
+          {member.name}
+        </h3>
+        <button className="mt-2 text-white/80 hover:text-white text-sm font-medium inline-flex items-center gap-1 transition-colors group/btn opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
           View Profile
           <svg
             className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"
@@ -168,133 +171,26 @@ export default function MembersPage() {
       {/* Overlay */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-teal-50/90 via-cyan-50/90 to-emerald-50/90" />
 
-      {/* MEMBERS CONTENT */}
-      <div className="max-w-6xl mx-auto px-6 py-12 space-y-20">
-        {/* SECTION 1: PRESIDENT - Now using the same card size as others */}
-        <section>
-          <h2 className="text-3xl font-bold text-center text-teal-700 mb-8 pb-2 border-b-2 border-teal-300 inline-block w-full">
-            Leadership
-          </h2>
-          <div className="flex justify-center">
-            <div className="w-full md:w-1/2 lg:w-1/3">
-              {members.president.map((m, i) =>
-                renderMemberCard(m, `president-${i}`, false),
-              )}
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 2: EXECUTIVE TEAM - Vice President, Secretary, Councilor */}
-        <section>
-          <h2 className="text-3xl font-bold text-center text-teal-700 mb-8 pb-2 border-b-2 border-teal-300 inline-block w-full">
-            Executive Committee
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {members.executive.map((m, i) =>
-              renderMemberCard(m, `executive-${i}`, false),
-            )}
-          </div>
-        </section>
-
-        {/* SECTION 3: ABBA GADAAS - Can be multiple */}
-        <section>
-          <h2 className="text-3xl font-bold text-center text-teal-700 mb-8 pb-2 border-b-2 border-teal-300 inline-block w-full">
-            Abba Gadaas
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {members.abbaGadaas.map((m, i) =>
-              renderMemberCard(m, `abbagada-${i}`, false),
-            )}
-          </div>
-        </section>
-
-        {/* SECTION 4: MEMBERS WITH SKILLS - Multiple members with different skills */}
-        <section>
-          <h2 className="text-3xl font-bold text-center text-teal-700 mb-8 pb-2 border-b-2 border-teal-300 inline-block w-full">
-            Skilled Members
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {members.skilledMembers.map((m, i) =>
-              renderMemberCard(m, `skilled-${i}`, true),
-            )}
-          </div>
-        </section>
-      </div>
-
-      {/* STATS SECTION */}
-      <section className="py-20 px-6 bg-gradient-to-r from-teal-100 via-cyan-100 to-emerald-100 text-center mt-12">
-        <h2 className="text-3xl md:text-5xl font-bold text-teal-700 mb-6">
-          Growing Together
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-10">
-          <div>
-            <div className="w-16 h-16 mx-auto bg-white/80 rounded-2xl flex items-center justify-center mb-3 shadow-md hover:scale-110 transition-transform duration-300">
-              <svg
-                className="w-8 h-8 text-teal-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                ></path>
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-gray-800">
-              {members.president.length +
-                members.executive.length +
-                members.abbaGadaas.length +
-                members.skilledMembers.length}
-              +
-            </h3>
-            <p className="text-gray-600">Active Members</p>
-          </div>
-
-          <div>
-            <div className="w-16 h-16 mx-auto bg-white/80 rounded-2xl flex items-center justify-center mb-3 shadow-md hover:scale-110 transition-transform duration-300">
-              <svg
-                className="w-8 h-8 text-teal-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.66 0 3-4 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4-3-9s1.34-9 3-9m-9 9a9 9 0 019-9"
-                ></path>
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-gray-800">10+</h3>
-            <p className="text-gray-600">Countries</p>
-          </div>
-
-          <div>
-            <div className="w-16 h-16 mx-auto bg-white/80 rounded-2xl flex items-center justify-center mb-3 shadow-md hover:scale-110 transition-transform duration-300">
-              <svg
-                className="w-8 h-8 text-teal-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-gray-800">5+</h3>
-            <p className="text-gray-600">Years Active</p>
-          </div>
-        </div>
+      {/* HERO SECTION */}
+      <section className="text-center py-24 px-6 relative">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600 text-transparent bg-clip-text">
+          Some of Our Members
+        </h1>
+        <p className="max-w-2xl mx-auto text-lg text-gray-600">
+          Meet the dedicated individuals who make GDASAO strong and vibrant. Our
+          members come from different Oromia Zones, preserving our culture and
+          empowering our community.
+        </p>
       </section>
+
+      {/* MEMBERS GRID */}
+      <div className="max-w-6xl mx-auto px-6 py-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {members.map((member, index) =>
+            renderMemberCard(member, `member-${index}`),
+          )}
+        </div>
+      </div>
 
       {/* CTA SECTION */}
       <section className="py-20 px-6 text-center bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600 text-white">
@@ -326,7 +222,7 @@ export default function MembersPage() {
             Learn More
           </button>
         </div>
-        <p className="mt-4 text-sm">✨ Free registration • Join today</p>
+        <p className="mt-4 text-sm"> • Join today</p>
       </section>
     </div>
   );

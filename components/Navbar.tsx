@@ -30,6 +30,17 @@ export default function Navbar() {
           </div>
         </Link>
 
+        {/* 🌍 Language Switcher (DESKTOP)
+        <select
+          value={lang}
+          onChange={(e) => setLang(e.target.value as "en" | "om" | "am")}
+          className="ml-3 px-3 py-2 rounded-lg border border-white/20 text-sm bg-slate-800/50 backdrop-blur-sm text-gray-200 hover:bg-slate-700/50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+        >
+          <option value="en">EN</option>
+          <option value="om">OM</option>
+          <option value="am">AM</option>
+        </select> */}
+
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-3 font-semibold">
           <Link
@@ -79,13 +90,13 @@ export default function Navbar() {
                 >
                   Members
                 </Link>
-                <Link
+                {/* <Link
                   href="/resources/gootota"
                   onClick={() => setOpenDropdown(false)}
                   className="block px-5 py-3 text-gray-200 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-200 border-t border-white/10"
                 >
                   Gootota Oromoo
-                </Link>
+                </Link> */}
               </div>
             )}
           </div>
@@ -102,17 +113,6 @@ export default function Navbar() {
               Register
             </button>
           </Link>
-
-          {/* 🌍 Language Switcher (DESKTOP) */}
-          {/* <select
-            value={lang}
-            onChange={(e) => setLang(e.target.value as "en" | "om" | "am")}
-            className="ml-3 px-3 py-2 rounded-lg border border-white/20 text-sm bg-slate-800/50 backdrop-blur-sm text-gray-200 hover:bg-slate-700/50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
-          >
-            <option value="en">EN</option>
-            <option value="om">OM</option>
-            <option value="am">AM</option>
-          </select> */}
         </div>
 
         {/* Mobile Button */}
