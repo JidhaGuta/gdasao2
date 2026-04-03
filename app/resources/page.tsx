@@ -25,15 +25,6 @@ export default function ResourcesPage() {
             Members
           </Link>
         </div>
-
-        <div className="transform transition-all duration-300 hover:scale-105">
-          <Link
-            href="/resources/gootota"
-            className="inline-block bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-8 py-4 rounded-xl hover:shadow-xl font-semibold text-lg"
-          >
-            Gootota Oromoo
-          </Link>
-        </div>
       </div>
     </div>
   );

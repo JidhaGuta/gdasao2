@@ -68,13 +68,18 @@ const members: Member[] = [
     image: "/members/sadik.jpg",
   },
   {
+    name: "",
+    image: "/members/gamta1.jpg",
+  },
+  {
     name: "Tolera",
     image: "/members/kuku.jpg",
   },
   {
-    name: "",
-    image: "/members/gamta1.jpg",
+    name: "Lami",
+    image: "/members/lami.jpg",
   },
+
   {
     name: "",
     image: "/members/gamta2.jpg",
@@ -86,10 +91,6 @@ const members: Member[] = [
   {
     name: "",
     image: "/members/gamta4.jpg",
-  },
-  {
-    name: "",
-    image: "/members/gamta5.jpg",
   },
   {
     name: "",

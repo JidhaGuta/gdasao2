@@ -94,7 +94,8 @@ export default function Footer() {
         {/* Bottom Bar - Centered */}
         <div className="text-center pt-8 border-t border-gray-700/50 mt-8">
           <p className="text-sm text-gray-400">
-            © {currentYear} GDASAO. All rights reserved
+            © {currentYear} GDASAO Jimma Institute of Technology. All rights
+            reserved
             <br />
             Designed and Developed by Jidha Guta
           </p>

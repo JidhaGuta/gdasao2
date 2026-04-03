@@ -253,7 +253,9 @@ export default function RegisterPage() {
           <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-1">
             Join GDASAO
           </h1>
-          <p className="text-gray-600 text-sm">Become part of our community</p>
+          <p className="text-gray-600 text-sm">
+            GDASAO Jimma Institute of Technology
+          </p>
         </div>
 
         {/* Form Card */}
