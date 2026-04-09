@@ -1,19 +1,21 @@
 "use client";
 
-import { usePathname, useRouter } from "@/i18n/routing";
+import { usePathname, useRouter as useNextRouter } from "next/navigation"; // Correct imports
 import { useLocale } from "next-intl";
 
 export default function LanguageSwitcher() {
   const pathname = usePathname();
-  const router = useRouter();
+  const router = useNextRouter();
   const currentLocale = useLocale();
+
   const languages = [
     { code: "en", name: "English", native: "English" },
     { code: "om", name: "Afan Oromo", native: "Afaan Oromoo" },
   ];
 
   const handleLanguageChange = (locale: string) => {
-    router.push(pathname, { locale });
+    // Navigate to the same path with the selected locale
+    router.push(`/${locale}${pathname}`);
   };
 
   return (
