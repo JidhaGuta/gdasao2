@@ -8,6 +8,13 @@ export default function LanguageSwitcher() {
   const router = useNextRouter();
   const currentLocale = useLocale();
 
+  type Language = {
+    code: string;
+    name: string;
+    native: string;
+    flag: string; // ✅ REQUIRED
+  };
+
   const languages = [
     { code: "en", name: "English", native: "English", flag: "🇺🇸" },
     { code: "om", name: "Afan Oromo", native: "Afaan Oromoo", flag: "🇪🇹" },
