@@ -2,8 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 
 export default function RegisterPage() {
+  const router = useRouter();
+  const locale = useLocale();
   const t = useTranslations("register");
 
   const [formData, setFormData] = useState({
@@ -79,15 +83,17 @@ export default function RegisterPage() {
     "Waggaa 5ffaa",
   ];
 
-  // Auto-dismiss message after 5 seconds
+  // Auto-dismiss message after 5 seconds and redirect
   useEffect(() => {
-    if (message && message.text) {
+    if (message && message.type === "success") {
       const timer = setTimeout(() => {
         setMessage(null);
-      }, 5000);
+        // Redirect to home page after success message
+        router.push(`/${locale}`);
+      }, 3000);
       return () => clearTimeout(timer);
     }
-  }, [message]);
+  }, [message, router, locale]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -227,18 +233,18 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 px-4 py-8 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 px-4 py-8 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-72 h-72 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
-        <div className="absolute -bottom-40 -left-40 w-72 h-72 bg-gradient-to-r from-blue-200 to-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-r from-pink-200 to-rose-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-4000"></div>
+        <div className="absolute -top-40 -right-40 w-72 h-72 bg-gradient-to-r from-green-200 to-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-72 h-72 bg-gradient-to-r from-teal-200 to-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-r from-emerald-200 to-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-4000"></div>
       </div>
 
       <div className="w-full max-w-3xl relative z-10">
         {/* Header Section */}
         <div className="text-center mb-6">
-          <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl mb-3 shadow-lg transform hover:scale-110 transition-transform duration-300">
+          <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl mb-3 shadow-lg transform hover:scale-110 transition-transform duration-300">
             <svg
               className="w-7 h-7 text-white"
               fill="none"
@@ -253,7 +259,7 @@ export default function RegisterPage() {
               ></path>
             </svg>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-1">
+          <h1 className="text-3xl md:text-4xl text-gray-800 mb-1">
             {t("title")}
           </h1>
           <p className="text-gray-600 text-sm">{t("subtitle")}</p>
@@ -291,7 +297,7 @@ export default function RegisterPage() {
                   value={formData.fullName}
                   onChange={handleChange}
                   placeholder={t("placeholders.fullName")}
-                  className={`w-full pl-9 pr-3 py-2.5 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 text-sm ${
+                  className={`w-full pl-9 pr-3 py-2.5 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 text-sm ${
                     fieldErrors.fullName
                       ? "border-red-400 bg-red-50"
                       : "border-gray-300"
@@ -332,7 +338,7 @@ export default function RegisterPage() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder={t("placeholders.email")}
-                  className={`w-full pl-9 pr-3 py-2.5 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 text-sm ${
+                  className={`w-full pl-9 pr-3 py-2.5 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 text-sm ${
                     fieldErrors.email
                       ? "border-red-400 bg-red-50"
                       : "border-gray-300"
@@ -369,7 +375,7 @@ export default function RegisterPage() {
                   name="gender"
                   value={formData.gender}
                   onChange={handleChange}
-                  className={`w-full pl-9 pr-8 py-2.5 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-800 appearance-none text-sm ${
+                  className={`w-full pl-9 pr-8 py-2.5 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-gray-800 appearance-none text-sm ${
                     fieldErrors.gender
                       ? "border-red-400 bg-red-50"
                       : "border-gray-300"
@@ -427,7 +433,7 @@ export default function RegisterPage() {
                   name="batch"
                   value={formData.batch}
                   onChange={handleChange}
-                  className={`w-full pl-9 pr-8 py-2.5 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-800 appearance-none text-sm ${
+                  className={`w-full pl-9 pr-8 py-2.5 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-gray-800 appearance-none text-sm ${
                     fieldErrors.batch
                       ? "border-red-400 bg-red-50"
                       : "border-gray-300"
@@ -486,7 +492,7 @@ export default function RegisterPage() {
                   name="zone"
                   value={formData.zone}
                   onChange={handleChange}
-                  className={`w-full pl-9 pr-8 py-2.5 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-800 appearance-none text-sm ${
+                  className={`w-full pl-9 pr-8 py-2.5 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-gray-800 appearance-none text-sm ${
                     fieldErrors.zone
                       ? "border-red-400 bg-red-50"
                       : "border-gray-300"
@@ -546,7 +552,7 @@ export default function RegisterPage() {
                   value={formData.woreda}
                   onChange={handleChange}
                   placeholder={t("placeholders.woreda")}
-                  className={`w-full pl-9 pr-3 py-2.5 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 text-sm ${
+                  className={`w-full pl-9 pr-3 py-2.5 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 text-sm ${
                     fieldErrors.woreda
                       ? "border-red-400 bg-red-50"
                       : "border-gray-300"
@@ -586,7 +592,7 @@ export default function RegisterPage() {
                   value={formData.telegram}
                   onChange={handleChange}
                   placeholder={t("placeholders.telegram")}
-                  className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 text-sm"
+                  className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 text-sm"
                 />
               </div>
             </div>
@@ -619,7 +625,7 @@ export default function RegisterPage() {
                   onChange={handleChange}
                   placeholder={t("placeholders.phone")}
                   maxLength={10}
-                  className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 text-sm"
+                  className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 text-sm"
                 />
               </div>
             </div>
@@ -646,7 +652,7 @@ export default function RegisterPage() {
                         type="checkbox"
                         checked={formData.talent.split(", ").includes(talent)}
                         onChange={() => handleTalentChange(talent)}
-                        className="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500"
+                        className="w-4 h-4 text-green-600 rounded focus:ring-green-500"
                       />
                       <span className="text-sm text-gray-700">{talent}</span>
                     </label>
@@ -692,7 +698,7 @@ export default function RegisterPage() {
                   onChange={handleChange}
                   placeholder={t("placeholders.comment")}
                   rows={2}
-                  className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 resize-none text-sm"
+                  className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 resize-none text-sm"
                 />
               </div>
             </div>
@@ -742,7 +748,7 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full mt-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-2.5 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-lg text-sm"
+            className="w-full mt-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white py-2.5 rounded-lg hover:from-green-600 hover:to-emerald-600 transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-lg text-sm"
           >
             {loading ? (
               <span className="flex items-center justify-center gap-2">

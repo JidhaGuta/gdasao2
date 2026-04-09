@@ -2,7 +2,18 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Globe } from "lucide-react";
+import {
+  Menu,
+  X,
+  Globe,
+  Home,
+  Info,
+  FolderOpen,
+  Mail,
+  UserPlus,
+  Users,
+  BookOpen,
+} from "lucide-react";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
@@ -57,7 +68,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-3 font-semibold">
+        <div className="hidden md:flex items-center gap-3">
           {/* Language Switcher - Before Home */}
           <div className="relative">
             <button
@@ -107,15 +118,17 @@ export default function Navbar() {
 
           <Link
             href={`/${locale}`}
-            className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300"
+            className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300 inline-flex items-center gap-2"
           >
+            <Home size={18} />
             {t("home")}
           </Link>
 
           <Link
             href={`/${locale}/about`}
-            className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300"
+            className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300 inline-flex items-center gap-2"
           >
+            <Info size={18} />
             {t("about")}
           </Link>
 
@@ -123,8 +136,9 @@ export default function Navbar() {
           <div className="relative">
             <button
               onClick={() => setOpenDropdown(!openDropdown)}
-              className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300 inline-flex items-center gap-1"
+              className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300 inline-flex items-center gap-2"
             >
+              <FolderOpen size={18} />
               {t("resources")}
               <svg
                 className={`w-4 h-4 transition-transform ${
@@ -144,12 +158,13 @@ export default function Navbar() {
             </button>
 
             {openDropdown && (
-              <div className="absolute left-0 top-full mt-2 bg-white backdrop-blur-md rounded-xl shadow-2xl min-w-[200px] border border-green-200 z-50 overflow-hidden">
+              <div className="absolute left-0 top-full mt-2 bg-white backdrop-blur-md rounded-xl shadow-2xl min-w-[220px] border border-green-200 z-50 overflow-hidden">
                 <Link
                   href={`/${locale}/resources/members`}
                   onClick={() => setOpenDropdown(false)}
-                  className="block px-5 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-green-400 hover:to-emerald-400 hover:text-white transition-all duration-200"
+                  className="block px-5 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-green-400 hover:to-emerald-400 hover:text-white transition-all duration-200 inline-flex items-center gap-2 w-full"
                 >
+                  <Users size={18} />
                   {t("members")}
                 </Link>
               </div>
@@ -158,13 +173,15 @@ export default function Navbar() {
 
           <Link
             href={`/${locale}/contact`}
-            className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300"
+            className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300 inline-flex items-center gap-2"
           >
+            <Mail size={18} />
             {t("contact")}
           </Link>
 
           <Link href={`/${locale}/register`}>
-            <button className="px-6 py-2 rounded-xl text-white font-bold bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
+            <button className="px-6 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg inline-flex items-center gap-2">
+              <UserPlus size={18} />
               {t("register")}
             </button>
           </Link>
@@ -215,28 +232,32 @@ export default function Navbar() {
             <Link
               href={`/${locale}`}
               onClick={() => setIsMenuOpen(false)}
-              className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300"
+              className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300 inline-flex items-center gap-2"
             >
+              <Home size={18} />
               {t("home")}
             </Link>
 
             <Link
               href={`/${locale}/about`}
               onClick={() => setIsMenuOpen(false)}
-              className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300"
+              className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300 inline-flex items-center gap-2"
             >
+              <Info size={18} />
               {t("about")}
             </Link>
 
             <div>
-              <div className="px-4 py-2 text-gray-700 font-medium">
+              <div className="px-4 py-2 text-gray-700 font-medium flex items-center gap-2">
+                <FolderOpen size={18} />
                 {t("resources")}
               </div>
               <Link
                 href={`/${locale}/resources/members`}
                 onClick={() => setIsMenuOpen(false)}
-                className="block px-6 py-2 text-gray-700 hover:text-gray-900 hover:bg-green-200/50 rounded-lg transition-all duration-300"
+                className="block px-6 py-2 text-gray-700 hover:text-gray-900 hover:bg-green-200/50 rounded-lg transition-all duration-300 inline-flex items-center gap-2 ml-4"
               >
+                <Users size={16} />
                 {t("members")}
               </Link>
             </div>
@@ -244,8 +265,9 @@ export default function Navbar() {
             <Link
               href={`/${locale}/contact`}
               onClick={() => setIsMenuOpen(false)}
-              className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300"
+              className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300 inline-flex items-center gap-2"
             >
+              <Mail size={18} />
               {t("contact")}
             </Link>
 
@@ -253,7 +275,8 @@ export default function Navbar() {
               href={`/${locale}/register`}
               onClick={() => setIsMenuOpen(false)}
             >
-              <button className="w-full px-6 py-2 rounded-xl text-white font-bold bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 transition-all duration-300">
+              <button className="w-full px-6 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 transition-all duration-300 inline-flex items-center justify-center gap-2">
+                <UserPlus size={18} />
                 {t("register")}
               </button>
             </Link>
