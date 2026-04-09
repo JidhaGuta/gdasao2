@@ -18,9 +18,16 @@ export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
+  type Language = {
+    code: string;
+    name: string;
+    native: string;
+    flag: string; // ✅ REQUIRED
+  };
+
   const languages = [
-    { code: "om", name: "Afaan Oromoo", native: "Afaan Oromoo" },
-    { code: "en", name: "English", native: "English" },
+    { code: "om", name: "Afan Oromo", native: "Afaan Oromoo", flag: "🇪🇹" },
+    { code: "en", name: "English", native: "English", flag: "🇺🇸" },
   ];
 
   const switchLanguage = (newLocale: string) => {

@@ -16,8 +16,8 @@ export default function LanguageSwitcher() {
   };
 
   const languages = [
-    { code: "en", name: "English", native: "English", flag: "🇺🇸" },
     { code: "om", name: "Afan Oromo", native: "Afaan Oromoo", flag: "🇪🇹" },
+    { code: "en", name: "English", native: "English", flag: "🇺🇸" },
   ];
 
   const handleLanguageChange = (locale: string) => {
