@@ -68,11 +68,11 @@ ${message}`;
     <div className="min-h-screen font-sans text-gray-800 relative">
       {/* Background */}
       <div className="absolute inset-0 -z-10 bg-[url('/bg.jpg')] bg-cover bg-center" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-50/90 via-purple-50/90 to-pink-50/90" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-teal-50/90 via-emerald-50/90 to-green-50/90" />
 
       {/* HERO */}
       <section className="text-center py-24 px-6">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-transparent bg-clip-text">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-green-600 to-emerald-600 text-transparent bg-clip-text">
           {t("hero.title")}
         </h1>
         <p className="max-w-2xl mx-auto text-lg text-gray-600">
@@ -88,7 +88,7 @@ ${message}`;
             <div className="grid sm:grid-cols-2 gap-4">
               {/* Email */}
               <div className="bg-white/70 backdrop-blur rounded-2xl shadow-lg p-4 text-center">
-                <div className="w-12 h-12 mx-auto bg-gradient-to-r from-indigo-500 to-pink-500 rounded-xl flex items-center justify-center mb-3">
+                <div className="w-12 h-12 mx-auto bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-3">
                   <Mail className="text-white" size={20} />
                 </div>
                 <h3 className="font-semibold">
@@ -101,7 +101,7 @@ ${message}`;
 
               {/* Phone */}
               <div className="bg-white/70 backdrop-blur rounded-2xl shadow-lg p-4 text-center">
-                <div className="w-12 h-12 mx-auto bg-gradient-to-r from-indigo-500 to-pink-500 rounded-xl flex items-center justify-center mb-3">
+                <div className="w-12 h-12 mx-auto bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-3">
                   <Phone className="text-white" size={20} />
                 </div>
                 <h3 className="font-semibold">
@@ -112,7 +112,7 @@ ${message}`;
 
               {/* Hours */}
               <div className="bg-white/70 backdrop-blur rounded-2xl shadow-lg p-4 text-center">
-                <div className="w-12 h-12 mx-auto bg-gradient-to-r from-indigo-500 to-pink-500 rounded-xl flex items-center justify-center mb-3">
+                <div className="w-12 h-12 mx-auto bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-3">
                   <Clock className="text-white" size={20} />
                 </div>
                 <h3 className="font-semibold">
@@ -128,7 +128,7 @@ ${message}`;
 
               {/* Social */}
               <div className="bg-white/70 backdrop-blur rounded-2xl shadow-lg p-4 text-center">
-                <div className="w-12 h-12 mx-auto bg-gradient-to-r from-indigo-500 to-pink-500 rounded-xl flex items-center justify-center mb-3">
+                <div className="w-12 h-12 mx-auto bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-3">
                   <MessageSquare className="text-white" size={20} />
                 </div>
                 <h3 className="font-semibold">
@@ -143,7 +143,7 @@ ${message}`;
             {/* Location */}
             <div className="bg-white/70 backdrop-blur rounded-2xl shadow-lg p-6">
               <div className="flex items-center gap-3 mb-4">
-                <MapPin className="text-indigo-600" />
+                <MapPin className="text-green-600" size={24} />
                 <h2 className="text-xl font-bold">{t("location.title")}</h2>
               </div>
               <p className="text-gray-600">{t("location.address")}</p>
@@ -161,7 +161,7 @@ ${message}`;
                 value={formData.name}
                 onChange={handleChange}
                 placeholder={t("form.namePlaceholder")}
-                className="p-3 rounded-xl border"
+                className="p-3 rounded-xl border focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none"
                 required
               />
 
@@ -171,7 +171,7 @@ ${message}`;
                 value={formData.email}
                 onChange={handleChange}
                 placeholder={t("form.emailPlaceholder")}
-                className="p-3 rounded-xl border"
+                className="p-3 rounded-xl border focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none"
                 required
               />
 
@@ -181,13 +181,13 @@ ${message}`;
                 onChange={handleChange}
                 placeholder={t("form.messagePlaceholder")}
                 rows={5}
-                className="p-3 rounded-xl border"
+                className="p-3 rounded-xl border focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none"
                 required
               />
 
               <button
                 type="submit"
-                className="bg-gradient-to-r from-indigo-600 to-pink-600 text-white py-3 rounded-xl flex items-center justify-center gap-2 hover:scale-105 transition-all duration-300"
+                className="bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 rounded-xl flex items-center justify-center gap-2 hover:scale-105 transition-all duration-300"
               >
                 <Send size={18} />
                 {t("form.submitButton")}

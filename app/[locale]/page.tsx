@@ -21,7 +21,7 @@ export default function HomePage() {
     <div className="min-h-screen font-sans text-gray-800 relative">
       {/* Background Image */}
       <div className="absolute inset-0 -z-10 bg-[url('/bg.jpg')] bg-cover bg-center" />
-      {/* Overlay - Updated to teal/cyan/emerald gradient */}
+      {/* Overlay - Updated to teal/cyan/emerald gradient (matching About page) */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-teal-50/90 via-cyan-50/90 to-emerald-50/90" />
 
       {/* HERO SECTION WITH FULL WIDTH IMAGE AND OVERLAY TEXT */}
@@ -35,8 +35,8 @@ export default function HomePage() {
             className="object-cover"
             priority
           />
-          {/* Dark Overlay for better text visibility */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20"></div>
+          {/* Dark Overlay for better text visibility - matching About page overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-black/30"></div>
         </div>
 
         {/* Hero Content Overlay - Centered */}
@@ -45,7 +45,7 @@ export default function HomePage() {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
               {t("hero.title")}
             </h1>
-            <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/90 leading-relaxed drop-shadow-lg">
+            <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/95 leading-relaxed drop-shadow-lg">
               {t("hero.description")}
             </p>
 
@@ -115,63 +115,67 @@ export default function HomePage() {
       </section>
 
       {/* IMPACT STATS SECTION */}
-      <section className="py-20 px-6 bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600 text-white text-center">
+      {/* IMPACT STATS SECTION - Changed to white/light gray like About page */}
+      <section className="py-20 px-6 bg-gray-50 text-gray-800 text-center">
         <h2 className="text-3xl md:text-5xl font-bold mb-6">
           {t("impact.title")}
         </h2>
-        <p className="text-white/90 mb-12 max-w-2xl mx-auto">
+        <p className="text-gray-600 mb-12 max-w-2xl mx-auto">
           {t("impact.subtitle")}
         </p>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           <div>
-            <div className="w-16 h-16 mx-auto bg-white/20 rounded-2xl flex items-center justify-center mb-4 backdrop-blur-sm">
-              <Users size={32} />
+            <div className="w-16 h-16 mx-auto bg-gradient-to-r from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+              <Users size={32} className="text-white" />
             </div>
-            <h3 className="text-3xl font-bold">{t("impact.members")}+</h3>
-            <p className="text-white/80">{t("impact.membersLabel")}</p>
+            <h3 className="text-3xl font-bold text-gray-800">
+              {t("impact.members")}+
+            </h3>
+            <p className="text-gray-600">{t("impact.membersLabel")}</p>
           </div>
 
           <div>
-            <div className="w-16 h-16 mx-auto bg-white/20 rounded-2xl flex items-center justify-center mb-4 backdrop-blur-sm">
-              <Calendar size={32} />
+            <div className="w-16 h-16 mx-auto bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+              <Calendar size={32} className="text-white" />
             </div>
-            <h3 className="text-3xl font-bold">{t("impact.events")}+</h3>
-            <p className="text-white/80">{t("impact.eventsLabel")}</p>
+            <h3 className="text-3xl font-bold text-gray-800">
+              {t("impact.events")}+
+            </h3>
+            <p className="text-gray-600">{t("impact.eventsLabel")}</p>
           </div>
 
           <div>
-            <div className="w-16 h-16 mx-auto bg-white/20 rounded-2xl flex items-center justify-center mb-4 backdrop-blur-sm">
-              <Star size={32} />
+            <div className="w-16 h-16 mx-auto bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+              <Star size={32} className="text-white" />
             </div>
-            <h3 className="text-3xl font-bold">{t("impact.years")}+</h3>
-            <p className="text-white/80">{t("impact.yearsLabel")}</p>
+            <h3 className="text-3xl font-bold text-gray-800">
+              {t("impact.years")}+
+            </h3>
+            <p className="text-gray-600">{t("impact.yearsLabel")}</p>
           </div>
         </div>
       </section>
 
-      {/* CTA SECTION */}
-      <section className="py-20 px-6 text-center bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600 text-white">
-        <Heart className="mx-auto mb-4" size={48} />
-        <h2 className="text-3xl md:text-5xl font-bold mb-4">
-          {t("cta.title")}
-        </h2>
-        <p className="mb-8 text-lg max-w-2xl mx-auto">{t("cta.description")}</p>
+      {/* CTA SECTION - Changed to dark gray like About page */}
+      <section className="py-20 px-6 text-center bg-white text-gray-900">
+        <h2 className="text-3xl md:text-5xl mb-4">{t("cta.title")}</h2>
+        <p className="mb-8 text-lg max-w-2xl mx-auto text-gray-600">
+          {t("cta.description")}
+        </p>
 
         <div className="flex justify-center gap-4 flex-wrap">
           <Link href="/register">
-            <button className="bg-white text-teal-600 px-8 py-3 rounded-xl hover:scale-105 transition-all duration-300 font-semibold shadow-lg">
+            <button className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-xl hover:scale-105 transition-all duration-300 shadow-lg">
               {t("cta.getStarted")}
             </button>
           </Link>
           <Link href="https://t.me/gdasaoJIT2025" target="_blank">
-            <button className="border-2 border-white text-white px-8 py-3 rounded-xl hover:bg-white hover:text-teal-600 transition-all duration-300 font-semibold">
+            <button className="border-2 border-green-500 text-green-600 px-8 py-3 rounded-xl hover:bg-gradient-to-r hover:from-green-500 hover:to-emerald-500 hover:text-white transition-all duration-300">
               {t("cta.joinTelegram")}
             </button>
           </Link>
         </div>
-
-        {/* <p className="mt-4 text-sm">{t("cta.footer")}</p> */}
       </section>
 
       {/* Add custom animations */}

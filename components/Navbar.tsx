@@ -22,7 +22,7 @@ export default function Navbar() {
     code: string;
     name: string;
     native: string;
-    flag: string; // ✅ REQUIRED
+    flag: string;
   };
 
   const languages = [
@@ -38,7 +38,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-xl bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 border-b border-white/10 shadow-2xl">
+    <nav className="sticky top-0 z-50 backdrop-blur-xl bg-gradient-to-r from-green-50 via-emerald-100 to-green-50 border-b border-green-200 shadow-2xl">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <Link href={`/${locale}`}>
@@ -48,9 +48,9 @@ export default function Navbar() {
               alt="GDASAO Logo"
               width={50}
               height={50}
-              className="rounded-full group-hover:scale-105 transition-transform duration-300 ring-2 ring-purple-400/50"
+              className="rounded-full group-hover:scale-105 transition-transform duration-300 ring-2 ring-green-400/50"
             />
-            <span className="text-2xl font-black bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 text-transparent bg-clip-text">
+            <span className="text-2xl font-black bg-gradient-to-r from-green-600 to-emerald-600 text-transparent bg-clip-text">
               GDASAO
             </span>
           </div>
@@ -62,7 +62,7 @@ export default function Navbar() {
           <div className="relative">
             <button
               onClick={() => setIsLangOpen(!isLangOpen)}
-              className="px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300 inline-flex items-center gap-2"
+              className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300 inline-flex items-center gap-2"
             >
               <Globe size={18} />
               <span>{languages.find((l) => l.code === locale)?.flag}</span>
@@ -85,19 +85,19 @@ export default function Navbar() {
             </button>
 
             {isLangOpen && (
-              <div className="absolute left-0 top-full mt-2 bg-slate-800/95 backdrop-blur-md rounded-xl shadow-2xl min-w-[160px] border border-white/20 z-50 overflow-hidden">
+              <div className="absolute left-0 top-full mt-2 bg-white backdrop-blur-md rounded-xl shadow-2xl min-w-[160px] border border-green-200 z-50 overflow-hidden">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
                     onClick={() => switchLanguage(lang.code)}
-                    className={`w-full text-left px-5 py-3 text-gray-200 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-200 flex items-center gap-2 ${
-                      locale === lang.code ? "bg-purple-500/20 text-white" : ""
+                    className={`w-full text-left px-5 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-green-400 hover:to-emerald-400 hover:text-white transition-all duration-200 flex items-center gap-2 ${
+                      locale === lang.code ? "bg-green-100 text-green-700" : ""
                     }`}
                   >
                     <span>{lang.flag}</span>
                     <span>{lang.native}</span>
                     {locale === lang.code && (
-                      <span className="ml-auto text-purple-400">✓</span>
+                      <span className="ml-auto text-green-600">✓</span>
                     )}
                   </button>
                 ))}
@@ -107,14 +107,14 @@ export default function Navbar() {
 
           <Link
             href={`/${locale}`}
-            className="px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300"
+            className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300"
           >
             {t("home")}
           </Link>
 
           <Link
             href={`/${locale}/about`}
-            className="px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300"
+            className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300"
           >
             {t("about")}
           </Link>
@@ -123,7 +123,7 @@ export default function Navbar() {
           <div className="relative">
             <button
               onClick={() => setOpenDropdown(!openDropdown)}
-              className="px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300 inline-flex items-center gap-1"
+              className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300 inline-flex items-center gap-1"
             >
               {t("resources")}
               <svg
@@ -144,11 +144,11 @@ export default function Navbar() {
             </button>
 
             {openDropdown && (
-              <div className="absolute left-0 top-full mt-2 bg-slate-800/95 backdrop-blur-md rounded-xl shadow-2xl min-w-[200px] border border-white/20 z-50 overflow-hidden">
+              <div className="absolute left-0 top-full mt-2 bg-white backdrop-blur-md rounded-xl shadow-2xl min-w-[200px] border border-green-200 z-50 overflow-hidden">
                 <Link
                   href={`/${locale}/resources/members`}
                   onClick={() => setOpenDropdown(false)}
-                  className="block px-5 py-3 text-gray-200 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-200"
+                  className="block px-5 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-green-400 hover:to-emerald-400 hover:text-white transition-all duration-200"
                 >
                   {t("members")}
                 </Link>
@@ -158,13 +158,13 @@ export default function Navbar() {
 
           <Link
             href={`/${locale}/contact`}
-            className="px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300"
+            className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300"
           >
             {t("contact")}
           </Link>
 
           <Link href={`/${locale}/register`}>
-            <button className="px-6 py-2 rounded-xl text-white font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
+            <button className="px-6 py-2 rounded-xl text-white font-bold bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
               {t("register")}
             </button>
           </Link>
@@ -172,7 +172,7 @@ export default function Navbar() {
 
         {/* Mobile Button */}
         <button
-          className="md:hidden text-gray-200 p-2 hover:bg-white/10 rounded-lg transition-all duration-300"
+          className="md:hidden text-gray-700 p-2 hover:bg-green-200/50 rounded-lg transition-all duration-300"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -181,11 +181,11 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-gradient-to-b from-slate-900 to-purple-900 border-t border-white/10">
+        <div className="md:hidden bg-gradient-to-b from-green-50 to-emerald-50 border-t border-green-200">
           <div className="flex flex-col px-6 py-4 space-y-2">
             {/* Language Switcher - First in mobile */}
             <div className="mb-2">
-              <div className="px-4 py-2 text-gray-300 font-medium flex items-center gap-2">
+              <div className="px-4 py-2 text-gray-700 font-medium flex items-center gap-2">
                 <Globe size={18} />
                 <span>Select Language</span>
               </div>
@@ -197,9 +197,9 @@ export default function Navbar() {
                       switchLanguage(lang.code);
                       setIsMenuOpen(false);
                     }}
-                    className={`px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2 ${
+                    className={`px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300 flex items-center justify-center gap-2 ${
                       locale === lang.code
-                        ? "bg-purple-500/30 ring-1 ring-purple-500"
+                        ? "bg-green-100 ring-1 ring-green-400"
                         : ""
                     }`}
                   >
@@ -210,12 +210,12 @@ export default function Navbar() {
               </div>
             </div>
 
-            <div className="border-t border-white/10 my-2"></div>
+            <div className="border-t border-green-200 my-2"></div>
 
             <Link
               href={`/${locale}`}
               onClick={() => setIsMenuOpen(false)}
-              className="px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300"
+              className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300"
             >
               {t("home")}
             </Link>
@@ -223,19 +223,19 @@ export default function Navbar() {
             <Link
               href={`/${locale}/about`}
               onClick={() => setIsMenuOpen(false)}
-              className="px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300"
+              className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300"
             >
               {t("about")}
             </Link>
 
             <div>
-              <div className="px-4 py-2 text-gray-300 font-medium">
+              <div className="px-4 py-2 text-gray-700 font-medium">
                 {t("resources")}
               </div>
               <Link
                 href={`/${locale}/resources/members`}
                 onClick={() => setIsMenuOpen(false)}
-                className="block px-6 py-2 text-gray-200 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300"
+                className="block px-6 py-2 text-gray-700 hover:text-gray-900 hover:bg-green-200/50 rounded-lg transition-all duration-300"
               >
                 {t("members")}
               </Link>
@@ -244,7 +244,7 @@ export default function Navbar() {
             <Link
               href={`/${locale}/contact`}
               onClick={() => setIsMenuOpen(false)}
-              className="px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300"
+              className="px-4 py-2 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-green-200/50 transition-all duration-300"
             >
               {t("contact")}
             </Link>
@@ -253,7 +253,7 @@ export default function Navbar() {
               href={`/${locale}/register`}
               onClick={() => setIsMenuOpen(false)}
             >
-              <button className="w-full px-6 py-2 rounded-xl text-white font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 transition-all duration-300">
+              <button className="w-full px-6 py-2 rounded-xl text-white font-bold bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 transition-all duration-300">
                 {t("register")}
               </button>
             </Link>

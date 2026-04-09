@@ -134,26 +134,27 @@ export default function MembersPage() {
       </div>
 
       {/* CTA */}
-      <section className="py-20 px-6 text-center bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600 text-white">
-        <h2 className="text-3xl md:text-5xl font-bold mb-4">
-          {t("cta.title")}
-        </h2>
-        <p className="mb-8 text-lg max-w-2xl mx-auto">{t("cta.description")}</p>
+
+      <section className="py-20 px-6 text-center bg-white text-gray-900">
+        <h2 className="text-3xl md:text-5xl font mb-4">{t("cta.title")}</h2>
+        <p className="mb-8 text-lg max-w-2xl mx-auto text-gray-600">
+          {t("cta.description")}
+        </p>
 
         <div className="flex justify-center gap-4 flex-wrap">
           <Link href="/register">
-            <button className="bg-white text-teal-600 px-6 py-3 rounded-xl hover:scale-105 transition font-semibold">
+            <button className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-3 rounded-xl hover:scale-105 transition font-semibold hover:shadow-xl">
               {t("cta.registerButton")}
             </button>
           </Link>
           <Link href="/about">
-            <button className="border border-white px-6 py-3 rounded-xl hover:bg-white hover:text-teal-600 transition font-semibold">
+            <button className="border-2 border-green-500 text-green-600 px-6 py-3 rounded-xl hover:bg-gradient-to-r hover:from-green-500 hover:to-emerald-500 hover:text-white transition font-semibold">
               {t("cta.learnMoreButton")}
             </button>
           </Link>
         </div>
 
-        <p className="mt-4 text-sm">{t("cta.footer")}</p>
+        <p className="mt-4 text-sm text-gray-500">{t("cta.footer")}</p>
       </section>
     </div>
   );

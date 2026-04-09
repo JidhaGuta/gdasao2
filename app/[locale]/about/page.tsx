@@ -166,13 +166,13 @@ export default function AboutPage() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             {t("values.title")}
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mx-auto"></div>
           <p className="text-gray-600 mt-4">{t("values.subtitle")}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-white/70 backdrop-blur rounded-2xl shadow-lg p-6 text-center hover:-translate-y-2 transition-all duration-300">
-            <div className="w-14 h-14 mx-auto rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 flex items-center justify-center mb-4">
+          <div className="bg-white rounded-2xl shadow-lg p-6 text-center hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+            <div className="w-14 h-14 mx-auto rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center mb-4">
               <Users className="text-white" size={24} />
             </div>
             <h3 className="font-bold text-xl text-gray-800 mb-2">
@@ -183,8 +183,8 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="bg-white/70 backdrop-blur rounded-2xl shadow-lg p-6 text-center hover:-translate-y-2 transition-all duration-300">
-            <div className="w-14 h-14 mx-auto rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 flex items-center justify-center mb-4">
+          <div className="bg-white rounded-2xl shadow-lg p-6 text-center hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+            <div className="w-14 h-14 mx-auto rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center mb-4">
               <BookOpen className="text-white" size={24} />
             </div>
             <h3 className="font-bold text-xl text-gray-800 mb-2">
@@ -195,8 +195,8 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="bg-white/70 backdrop-blur rounded-2xl shadow-lg p-6 text-center hover:-translate-y-2 transition-all duration-300">
-            <div className="w-14 h-14 mx-auto rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center mb-4">
+          <div className="bg-white rounded-2xl shadow-lg p-6 text-center hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+            <div className="w-14 h-14 mx-auto rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center mb-4">
               <Globe className="text-white" size={24} />
             </div>
             <h3 className="font-bold text-xl text-gray-800 mb-2">
@@ -207,66 +207,6 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-      </section>
-
-      {/* IMPACT STATS SECTION */}
-      <section className="py-20 px-6 bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600 text-white text-center">
-        <h2 className="text-3xl md:text-5xl font-bold mb-6">
-          {t("impact.title")}
-        </h2>
-        <p className="text-white/90 mb-12 max-w-2xl mx-auto">
-          {t("impact.subtitle")}
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <div>
-            <div className="w-16 h-16 mx-auto bg-white/20 rounded-2xl flex items-center justify-center mb-4 backdrop-blur-sm">
-              <Users size={32} />
-            </div>
-            <h3 className="text-3xl font-bold">{t("impact.members")}+</h3>
-            <p className="text-white/80">{t("impact.membersLabel")}</p>
-          </div>
-
-          <div>
-            <div className="w-16 h-16 mx-auto bg-white/20 rounded-2xl flex items-center justify-center mb-4 backdrop-blur-sm">
-              <Calendar size={32} />
-            </div>
-            <h3 className="text-3xl font-bold">{t("impact.events")}+</h3>
-            <p className="text-white/80">{t("impact.eventsLabel")}</p>
-          </div>
-
-          <div>
-            <div className="w-16 h-16 mx-auto bg-white/20 rounded-2xl flex items-center justify-center mb-4 backdrop-blur-sm">
-              <Star size={32} />
-            </div>
-            <h3 className="text-3xl font-bold">{t("impact.years")}+</h3>
-            <p className="text-white/80">{t("impact.yearsLabel")}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA SECTION */}
-      <section className="py-20 px-6 text-center bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600 text-white">
-        <Heart className="mx-auto mb-4" size={48} />
-        <h2 className="text-3xl md:text-5xl font-bold mb-4">
-          {t("cta.title")}
-        </h2>
-        <p className="mb-8 text-lg max-w-2xl mx-auto">{t("cta.description")}</p>
-
-        <div className="flex justify-center gap-4 flex-wrap">
-          <Link href="/register">
-            <button className="bg-white text-teal-600 px-6 py-3 rounded-xl hover:scale-105 transition font-semibold shadow-lg">
-              {t("cta.getStarted")}
-            </button>
-          </Link>
-          <Link href="https://t.me/gdasaoJIT2025" target="_blank">
-            <button className="border-2 border-white px-6 py-3 rounded-xl hover:bg-white hover:text-teal-600 transition font-semibold">
-              {t("cta.joinTelegram")}
-            </button>
-          </Link>
-        </div>
-
-        <p className="mt-4 text-sm">{t("cta.footer")}</p>
       </section>
 
       {/* Add custom animations */}
