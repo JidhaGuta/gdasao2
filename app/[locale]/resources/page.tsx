@@ -1,6 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function ResourcesPage() {
+  const t = useTranslations("resources");
+
   return (
     <div className="min-h-screen px-6 py-12 text-center relative">
       {/* Background Image */}
@@ -9,11 +14,11 @@ export default function ResourcesPage() {
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-teal-50/90 via-cyan-50/90 to-emerald-50/90" />
 
       <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600 text-transparent bg-clip-text">
-        Explore GDASAO Resources
+        {t("title")}
       </h1>
 
       <p className="max-w-2xl mx-auto text-gray-600 mb-12">
-        Discover valuable resources and information for our community members
+        {t("description")}
       </p>
 
       <div className="flex flex-wrap justify-center gap-6">
@@ -22,7 +27,7 @@ export default function ResourcesPage() {
             href="/resources/members"
             className="inline-block bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-8 py-4 rounded-xl hover:shadow-xl font-semibold text-lg"
           >
-            Members
+            {t("membersButton")}
           </Link>
         </div>
       </div>

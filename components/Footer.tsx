@@ -8,9 +8,11 @@ import {
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const t = useTranslations("footer");
 
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white pt-16 pb-8 px-6 relative overflow-hidden">
@@ -33,9 +35,7 @@ export default function Footer() {
 
           {/* Description */}
           <p className="text-gray-300 max-w-2xl mx-auto mb-8 text-base md:text-lg leading-relaxed">
-            GDASAO is promoting Oromo Culture, History and Afaan Oromoo
-            language. Join us in our journey to create meaningful impact and
-            show our cultures to the world.
+            {t("description")}
           </p>
 
           {/* Social Media Icons - Centered with gap */}
@@ -79,31 +79,18 @@ export default function Footer() {
                 <FaInstagram className="text-2xl text-gray-300 group-hover:text-white transition-colors" />
               </div>
             </Link>
-
-            {/* <Link
-              href="https://twitter.com/yourprofile"
-              target="_blank"
-              className="group relative"
-            >
-              <div className="w-12 h-12 rounded-full bg-white/10 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg">
-                <FaTwitter className="text-2xl text-gray-300 group-hover:text-white transition-colors" />
-              </div>
-            </Link> */}
           </div>
         </div>
+
         {/* Bottom Bar - Centered */}
         <div className="text-center pt-8 border-t border-gray-700/50 mt-8">
           <p className="text-sm text-gray-400">
-            © {currentYear} GDASAO Jimma Institute of Technology. All rights
-            reserved
+            {t("copyright", { year: currentYear })}
             <br />
-            Designed and Developed by Jidha Guta
+            {t("designedBy")}
           </p>
         </div>
       </div>
     </footer>
   );
 }
-
-
-

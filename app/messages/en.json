@@ -1,0 +1,231 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "register": "Register",
+    "resources": "Resources",
+    "members": "Members"
+  },
+  "footer": {
+    "description": "GDASAO is promoting Oromo Culture, History and Afaan Oromoo language. Join us in our journey to create meaningful impact and show our cultures to the world.",
+    "copyright": "© {year} GDASAO Jimma Institute of Technology. All rights reserved",
+    "designedBy": "Designed and Developed by Jidha Guta"
+  },
+  "home": {
+    "hero": {
+      "alt": "GDASAO Community",
+      "title": "Welcome to GDASAO",
+      "description": "Join a vibrant community dedicated to preserving culture, Afan Oromoo language, and positive change. Together, we shape the future through collaboration and shared vision.",
+      "getStarted": "Get Started",
+      "joinTelegram": "Join Telegram"
+    },
+    "whatWeDo": {
+      "title": "What We Do",
+      "subtitle": "Empowering communities, Educating Generation, Engagement, and cultural exchange",
+      "educating": {
+        "title": "Educating Generation",
+        "description": "Since its inception, it has been working with its members and supporters to educate and inform tomorrow's generation."
+      },
+      "store": {
+        "title": "GDASAO Store",
+        "description": "GDASAO members are buying pictures of Oromo heroes and various books on culture, history and novels and offering them to members."
+      },
+      "engagement": {
+        "title": "Engagement",
+        "description": "GDASAO has been the best for her members on her basic goal of identity, unity and Oromoness and has published a book called Hayyuu Bara Keenyaa and Faana Seenaa."
+      }
+    },
+    "impact": {
+      "title": "Our Impact from 2005 E.C to 2018 E.C",
+      "subtitle": "Making a measurable difference in communities through our programs, events, and initiatives. Here are some of our key impact metrics:",
+      "members": "500+",
+      "membersLabel": "Active Members",
+      "events": "20+",
+      "eventsLabel": "Total Events",
+      "years": "12+",
+      "yearsLabel": "Years of Impact"
+    },
+    "cta": {
+      "title": "Ready to Shape the Future?",
+      "description": "Join thousands of members who are already making a difference. Your journey starts here.",
+      "getStarted": "Get Started",
+      "joinTelegram": "Join Telegram"
+      
+    }
+  },
+  "about": {
+    "hero": {
+      "alt": "About GDASAO",
+      "title": "About GDASAO",
+      "description": "Discover our story, mission, and the impact we're making in communities. We're building a better future through collaboration and shared values."
+    },
+    "fullDescription": {
+      "title": "Full Description",
+      "content": "GDASAO (The Gumii Dagaagina Aadaa, Seenaa fi Afaan Oromoo) of Jimma University is based on Article 39/2 of the Federal Constitution of Ethiopia which states that every nation, ethnic group and people of Ethiopia has the right to speak, write and develop their language. It was founded in Jimma in 2005 Ethiopian calendar."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "content": "To empower and unite the Oromo community through cultural preservation, educational support, and community engagement, fostering a sense of identity, pride, and collective progress.",
+      "tagline": "Making a difference daily"
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "Research the cultures that are currently going to disappear and work on the history of the heroes whose blood and bones have been used for their people.",
+      "tagline": "Building tomorrow's leaders"
+    },
+    "history": {
+      "title": "Our History",
+      "content": "Since its formation, GDASAO has actively engaged in various activities including supporting students through educational programs, organizing cultural events to preserve Oromo traditions, providing community outreach initiatives, and creating networking opportunities for members across different zones and beyond. Through its dedicated leadership and passionate members, GDASAO has grown into a vibrant community that empowers its members, promotes cultural identity, and contributes to the development of its people both locally and globally.",
+      "foundedYear": "2005 E.C",
+      "foundedLabel": "Founded",
+      "membersYear": "2018 E.C",
+      "membersLabel": "500+ Members"
+    },
+    "values": {
+      "title": "Our Core Values",
+      "subtitle": "The principles that guide everything we do",
+      "community": {
+        "title": "Community First",
+        "description": "Building strong, supportive connections with other GDASAO branches and the wider community."
+      },
+      "learning": {
+        "title": "Continuous Learning",
+        "description": "Growing together through Sharing culture, history and language"
+      },
+      "global": {
+        "title": "Global Perspective",
+        "description": "Embracing diversity and inclusion to create a welcoming environment for all GDASAO members worldwide."
+      }
+    },
+    "impact": {
+      "title": "Our Impact from 2005 E.C to 2018 E.C",
+      "subtitle": "Making a measurable difference in communities through our programs, events, and initiatives. Here are some of our key impact metrics:",
+      "members": "500+",
+      "membersLabel": "Active Members",
+      "events": "20+",
+      "eventsLabel": "Total Events",
+      "years": "12+",
+      "yearsLabel": "Years of Impact"
+    },
+    "cta": {
+      "title": "Be Part of Our Journey",
+      "description": "Join us in creating meaningful change and building a better future together. Your journey starts here.",
+      "getStarted": "Get Started",
+      "joinTelegram": "Join Telegram",
+      "footer": "Join today"
+    }
+  },
+  "resources": {
+    "title": "Explore GDASAO Resources",
+    "description": "Discover valuable resources and information for our community members",
+    "membersButton": "Members"
+  },
+  "members": {
+    "title": "Some of Our Members",
+    "description": "Meet the dedicated individuals who make GDASAO strong and vibrant. Our members come from different Oromia Zones, preserving our culture and empowering our community.",
+    "viewProfile": "View Profile",
+    "imageNotAvailable": "Image not available",
+    "memberAlt": "Member photo",
+    "anonymousMember": "GDASAO Member",
+    "cta": {
+      "title": "Join Our Community",
+      "description": "Become a member and connect with like-minded individuals",
+      "registerButton": "Register Now",
+      "learnMoreButton": "Learn More",
+      "footer": "✨ Join today"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "description": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+    },
+    "contactInfo": {
+      "email": {
+        "title": "Email Us"
+      },
+      "phone": {
+        "title": "Call Us"
+      },
+      "hours": {
+        "title": "Office Hours",
+        "days": "Mon - Fri",
+        "time": "8AM - 5PM"
+      },
+      "social": {
+        "title": "Social"
+      }
+    },
+    "location": {
+      "title": "Our Location",
+      "address": "JIT Clinic building 1st floor, JIT Campus, Jimma, Oromia, Ethiopia"
+    },
+    "form": {
+      "title": "Send Message",
+      "namePlaceholder": "Full Name",
+      "emailPlaceholder": "Email",
+      "messagePlaceholder": "Message",
+      "submitButton": "Send Message",
+      "emailSubject": "Contact Form Submission from",
+      "nameLabel": "Name",
+      "emailLabel": "Email",
+      "messageLabel": "Message"
+    },
+    "popup": {
+      "title": "Email Ready!",
+      "message": "Please click send in your email app."
+    }
+  },
+  "register": {
+    "title": "Join GDASAO",
+    "subtitle": "GDASAO Jimma Institute of Technology",
+    "labels": {
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "gender": "Gender",
+      "batch": "Batch",
+      "zone": "Zone",
+      "woreda": "Woreda",
+      "telegram": "Telegram",
+      "phone": "Phone",
+      "talent": "Talent / Skill",
+      "comment": "Additional Comments",
+      "selected": "Selected"
+    },
+    "placeholders": {
+      "fullName": "Enter your full name",
+      "email": "your@email.com",
+      "woreda": "Enter your woreda",
+      "telegram": "@username",
+      "phone": "09XXXXXXXX",
+      "comment": "Put your comments here..."
+    },
+    "options": {
+      "selectGender": "Select gender",
+      "male": "Male",
+      "female": "Female",
+      "selectBatch": "Select batch/year",
+      "selectZone": "Select zone"
+    },
+    "errors": {
+      "fullNameRequired": "Full name is required",
+      "emailRequired": "Email address is required",
+      "emailInvalid": "Email is invalid",
+      "genderRequired": "Please select your gender",
+      "batchRequired": "Please select your batch/year",
+      "zoneRequired": "Please select your zone",
+      "woredaRequired": "Woreda is required",
+      "talentRequired": "Please select at least one talent/skill"
+    },
+    "messages": {
+      "success": "Registration successful! Welcome to GDASAO!",
+      "error": "❌ Submission failed. Try again.",
+      "networkError": "❌ Network error. Please try again."
+    },
+    "button": {
+      "submit": "Register",
+      "submitting": "Submitting..."
+    }
+  }
+}

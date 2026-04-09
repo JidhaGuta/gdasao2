@@ -1,8 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 export default function RegisterPage() {
+  const t = useTranslations("register");
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -142,16 +145,16 @@ export default function RegisterPage() {
       talent?: string;
     } = {};
 
-    if (!formData.fullName.trim()) errors.fullName = "Full name is required";
-    if (!formData.email.trim()) errors.email = "Email address is required";
+    if (!formData.fullName.trim())
+      errors.fullName = t("errors.fullNameRequired");
+    if (!formData.email.trim()) errors.email = t("errors.emailRequired");
     else if (!/\S+@\S+\.\S+/.test(formData.email))
-      errors.email = "Email is invalid";
-    if (!formData.gender) errors.gender = "Please select your gender";
-    if (!formData.batch) errors.batch = "Please select your batch/year";
-    if (!formData.zone.trim()) errors.zone = "Please select your zone";
-    if (!formData.woreda.trim()) errors.woreda = "Woreda is required";
-    if (!formData.talent.trim())
-      errors.talent = "Please select at least one talent/skill";
+      errors.email = t("errors.emailInvalid");
+    if (!formData.gender) errors.gender = t("errors.genderRequired");
+    if (!formData.batch) errors.batch = t("errors.batchRequired");
+    if (!formData.zone.trim()) errors.zone = t("errors.zoneRequired");
+    if (!formData.woreda.trim()) errors.woreda = t("errors.woredaRequired");
+    if (!formData.talent.trim()) errors.talent = t("errors.talentRequired");
 
     setFieldErrors(errors);
     return Object.keys(errors).length === 0;
@@ -187,7 +190,7 @@ export default function RegisterPage() {
       if (result.status === "success") {
         setMessage({
           type: "success",
-          text: "🎉 Registration successful! Welcome to GDASAO!",
+          text: t("messages.success"),
         });
 
         setFormData({
@@ -210,13 +213,13 @@ export default function RegisterPage() {
           text:
             typeof result.message === "string"
               ? result.message
-              : "❌ Submission failed. Try again.",
+              : t("messages.error"),
         });
       }
     } catch (err: any) {
       setMessage({
         type: "error",
-        text: err?.message || "❌ Network error. Please try again.",
+        text: err?.message || t("messages.networkError"),
       });
     }
 
@@ -251,11 +254,9 @@ export default function RegisterPage() {
             </svg>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-1">
-            Join GDASAO
+            {t("title")}
           </h1>
-          <p className="text-gray-600 text-sm">
-            GDASAO Jimma Institute of Technology
-          </p>
+          <p className="text-gray-600 text-sm">{t("subtitle")}</p>
         </div>
 
         {/* Form Card */}
@@ -267,7 +268,7 @@ export default function RegisterPage() {
             {/* Full Name */}
             <div className="md:col-span-2">
               <label className="block text-gray-700 text-sm font-medium mb-1.5">
-                Full Name <span className="text-red-500">*</span>
+                {t("labels.fullName")} <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -289,7 +290,7 @@ export default function RegisterPage() {
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleChange}
-                  placeholder="Enter your full name"
+                  placeholder={t("placeholders.fullName")}
                   className={`w-full pl-9 pr-3 py-2.5 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 text-sm ${
                     fieldErrors.fullName
                       ? "border-red-400 bg-red-50"
@@ -307,7 +308,7 @@ export default function RegisterPage() {
             {/* Email */}
             <div className="md:col-span-2">
               <label className="block text-gray-700 text-sm font-medium mb-1.5">
-                Email Address <span className="text-red-500">*</span>
+                {t("labels.email")} <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -330,7 +331,7 @@ export default function RegisterPage() {
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="your@email.com"
+                  placeholder={t("placeholders.email")}
                   className={`w-full pl-9 pr-3 py-2.5 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 text-sm ${
                     fieldErrors.email
                       ? "border-red-400 bg-red-50"
@@ -346,7 +347,7 @@ export default function RegisterPage() {
             {/* Gender */}
             <div>
               <label className="block text-gray-700 text-sm font-medium mb-1.5">
-                Gender <span className="text-red-500">*</span>
+                {t("labels.gender")} <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -374,9 +375,9 @@ export default function RegisterPage() {
                       : "border-gray-300"
                   }`}
                 >
-                  <option value="">Select gender</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
+                  <option value="">{t("options.selectGender")}</option>
+                  <option value="Male">{t("options.male")}</option>
+                  <option value="Female">{t("options.female")}</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                   <svg
@@ -404,7 +405,7 @@ export default function RegisterPage() {
             {/* Batch */}
             <div>
               <label className="block text-gray-700 text-sm font-medium mb-1.5">
-                Batch <span className="text-red-500">*</span>
+                {t("labels.batch")} <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -432,7 +433,7 @@ export default function RegisterPage() {
                       : "border-gray-300"
                   }`}
                 >
-                  <option value="">Select batch/year</option>
+                  <option value="">{t("options.selectBatch")}</option>
                   {batches.map((batch) => (
                     <option key={batch} value={batch}>
                       {batch}
@@ -463,7 +464,7 @@ export default function RegisterPage() {
             {/* Zone */}
             <div>
               <label className="block text-gray-700 text-sm font-medium mb-1.5">
-                Zone <span className="text-red-500">*</span>
+                {t("labels.zone")} <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -491,7 +492,7 @@ export default function RegisterPage() {
                       : "border-gray-300"
                   }`}
                 >
-                  <option value="">Select zone</option>
+                  <option value="">{t("options.selectZone")}</option>
                   {zones.map((z) => (
                     <option key={z} value={z}>
                       {z}
@@ -522,7 +523,7 @@ export default function RegisterPage() {
             {/* Woreda */}
             <div>
               <label className="block text-gray-700 text-sm font-medium mb-1.5">
-                Woreda <span className="text-red-500">*</span>
+                {t("labels.woreda")} <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -544,7 +545,7 @@ export default function RegisterPage() {
                   name="woreda"
                   value={formData.woreda}
                   onChange={handleChange}
-                  placeholder="Enter your woreda"
+                  placeholder={t("placeholders.woreda")}
                   className={`w-full pl-9 pr-3 py-2.5 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 text-sm ${
                     fieldErrors.woreda
                       ? "border-red-400 bg-red-50"
@@ -562,7 +563,7 @@ export default function RegisterPage() {
             {/* Telegram */}
             <div>
               <label className="block text-gray-700 text-sm font-medium mb-1.5">
-                Telegram
+                {t("labels.telegram")}
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -584,7 +585,7 @@ export default function RegisterPage() {
                   name="telegram"
                   value={formData.telegram}
                   onChange={handleChange}
-                  placeholder="@username"
+                  placeholder={t("placeholders.telegram")}
                   className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 text-sm"
                 />
               </div>
@@ -593,7 +594,7 @@ export default function RegisterPage() {
             {/* Phone */}
             <div>
               <label className="block text-gray-700 text-sm font-medium mb-1.5">
-                Phone
+                {t("labels.phone")}
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -616,7 +617,7 @@ export default function RegisterPage() {
                   type="tel"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="09XXXXXXXX"
+                  placeholder={t("placeholders.phone")}
                   maxLength={10}
                   className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 text-sm"
                 />
@@ -626,7 +627,7 @@ export default function RegisterPage() {
             {/* Talent - Checkbox Group */}
             <div className="md:col-span-2">
               <label className="block text-gray-700 text-sm font-medium mb-2">
-                Talent / Skill <span className="text-red-500">*</span>
+                {t("labels.talent")} <span className="text-red-500">*</span>
               </label>
               <div
                 className={`p-4 bg-gray-50 border rounded-lg ${
@@ -659,7 +660,7 @@ export default function RegisterPage() {
               )}
               {formData.talent && (
                 <p className="mt-2 text-xs text-gray-500">
-                  Selected: {formData.talent}
+                  {t("labels.selected")}: {formData.talent}
                 </p>
               )}
             </div>
@@ -667,7 +668,7 @@ export default function RegisterPage() {
             {/* Comment */}
             <div className="md:col-span-2">
               <label className="block text-gray-700 text-sm font-medium mb-1.5">
-                Additional Comments
+                {t("labels.comment")}
               </label>
               <div className="relative">
                 <div className="absolute top-2.5 left-3 pointer-events-none">
@@ -689,7 +690,7 @@ export default function RegisterPage() {
                   name="comment"
                   value={formData.comment}
                   onChange={handleChange}
-                  placeholder="put your comments here..."
+                  placeholder={t("placeholders.comment")}
                   rows={2}
                   className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400 resize-none text-sm"
                 />
@@ -697,7 +698,7 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* Message Alert - Fixed with proper null check */}
+          {/* Message Alert */}
           {message && message.text && (
             <div
               className={`mt-4 mb-3 px-5 py-3 rounded-xl shadow-lg w-full transform transition-all duration-300 ${
@@ -765,10 +766,10 @@ export default function RegisterPage() {
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                   ></path>
                 </svg>
-                Submitting...
+                {t("button.submitting")}
               </span>
             ) : (
-              "Register"
+              t("button.submit")
             )}
           </button>
         </form>

@@ -1,0 +1,231 @@
+{
+  "nav": {
+    "home": "Fuldura",
+    "about": "Waa'ee keenya",
+    "contact": "Nu Qunnamaa",
+    "register": "Galmaa'i",
+    "resources": "Qabeenya",
+    "members": "Miseensota"
+  },
+  "footer": {
+    "description": "GDASAO'n aadaa, seenaa fi Afaan Oromoo guddisuuf hojjechaa jira. Imala keenya keessatti nu waliin hirmaadhaa, jijjiirama hiika qabu uumuu fi aadaa keenya addunyaatti agarsiisuuf.",
+    "copyright": "© {year} GDASAO Inistiitiyuutii Teeknooloojii Jimmaa. Mirgi hundi seeraan kan eegame dha",
+    "designedBy": "Kan qopheesse fi kan ijaare: Jiidhaa Guutaa"
+  },
+  "home": {
+    "hero": {
+      "alt": "Hawaasa GDASAO",
+      "title": "Baga gara GDASAO dhuftan",
+      "description": "Hawaasa cimaa aadaa, Afaan Oromoo fi jijjiirama gaarii tiksuuf hojjetu keessatti nu waliin hirmaadhaa. Waliin taanee fuuldura keenya ijaarra.",
+      "getStarted": "Jalqabi",
+      "joinTelegram": "Telegramitti makami"
+    },
+    "whatWeDo": {
+      "title": "Waan Hojjennu",
+      "subtitle": "Hawaasa jabeessuu, dhaloota barsiisuu, hirmaachisummaa fi waljijjiirraa aadaa guddisuu",
+      "educating": {
+        "title": "Dhaloota Barsiisuu",
+        "description": "Egaa jalqabaa irraa kaasee miseensotaa fi deeggartoota isaa waliin dhaloota borii barsiisuu fi hubachiisuuf hojjechaa tureera."
+      },
+      "store": {
+        "title": "Godambaa GDASAO",
+        "description": "Miseensonni GDASAO suura gootota Oromoo fi kitaabota aadaa, seenaa fi seenaa barreessan bitanii miseensotaaf dhiyeessu."
+      },
+      "engagement": {
+        "title": "Hirmaachisummaa",
+        "description": "GDASAO kaayyoo isaa bu’uuraa kan ta’e eenyummaa, tokkummaa fi Oromummaa irratti cimaa hojjechaa tureera; kitaabota akka Hayyuu Bara Keenyaa fi Faana Seenaa maxxanseera."
+      }
+    },
+    "impact": {
+      "title": "Bu’aa keenya bara 2005 A.L.I  hanga 2018 A.L.I",
+      "subtitle": "GDASAO'n Sagantaalee, taateewwanii fi hojiiwwan keenyaatiin hawaasa keessatti jijjiirama mul’atu fideera. Kunoo lakkoofsa bu’aa keenya keessaa muraasni:",
+      "members": "500+",
+      "membersLabel": "Miseensota keenya",
+      "events": "20+",
+      "eventsLabel": "Taateewwan waliigalaa",
+      "years": "12+",
+      "yearsLabel": "bara hojii"
+    },
+    "cta": {
+      "title": "Boruu GDASAO ijaaruuf qophiidhaa?",
+      "description": "Miseensota dhibbaan lakkaa'aman kanneen duraanuu jijjiirama fidaa jiran waliin ta'aa. Imalli keessan asirraa eegala",
+      "getStarted": "Jalqabi",
+      "joinTelegram": "Telegramitti makami"
+      
+    }
+  },
+  "about": {
+    "hero": {
+      "alt": "Waa'ee GDASAO",
+      "title": "Waa'ee GDASAO",
+      "description": "Seenaa keenya, ergama keenya fi bu’aa hawaasa keessatti fidne baruuf. Waliin taanee fuuldura gaarii ijaarra."
+    },
+    "fullDescription": {
+      "title": "Ibsa Guutuu",
+      "content": "GDASAO (Gumii Dagaagina Aadaa, Seenaa fi Afaan Oromoo) Yunivarsiitii Jimmaa keessatti hundaa’e, Heera Federaalaa Itoophiyaa Keewwata 39/2 irratti hundaa’eedha; kunis sabni kamiyyuu afaan isaa dubbachuu, barreessuu fi guddisuu akka danda’u mirkaneessa. Bara 2005 A.L.I Jimma keessatti hundaa’e."
+    },
+    "mission": {
+      "title": "Ergama Keenya",
+      "content": "Hawaasa Oromoo jabeessuu fi tokkummaa isaanii guddisuu, aadaa isaanii tikfachuu, deeggarsa barnootaa kennuu fi hirmaachisummaa guddisuun eenyummaa, ofitti amantummaa fi guddina waliinii uumuudha.",
+      "tagline": "Guyyaa guyyaan jijjiirama uumu"
+    },
+    "vision": {
+      "title": "Mul’ata Keenya",
+      "content": "Aadaa badee deemu qorachuun, seenaa gootota sabaaf wareegaman qorachuu fi guddisuuf hojjechuudha.",
+      "tagline": "Hoggantoota borii ijaaruu"
+    },
+    "history": {
+      "title": "Seenaa Keenya",
+      "content": "Hundeeffama isaa irraa kaasee GDASAO'n hojiiwwan garaagaraa hojjechaa tureera. Barattoota deeggaruu, taateewwan aadaa qopheessuu, hojii hawaasummaa gaggeessuu fi carraa hariiroo GDASAO damee biroo waliin uumuu. Hoggantoota cimaa fi miseensota kaka’umsa qaban waliin guddachaa dhufeera.",
+      "foundedYear": "2005 A.L.I",
+      "foundedLabel": "Hundaa'e",
+      "membersYear": "2018 A.L.I",
+      "membersLabel": "Miseensota 500+"
+    },
+    "values": {
+      "title": "Duudhaa Keenya",
+      "subtitle": "Qajeelfamoota hojii keenya hunda keessatti nu barbaachisan",
+      "community": {
+        "title": "Hawaasa Dursa",
+        "description": "Hariiroo cimaa fi wal deeggaruu uumuu."
+      },
+      "learning": {
+        "title": "Barnoota Itti Fufiinsa Qabu",
+        "description": "Aadaa, seenaa fi afaan waliif qooduun wal guddisuu."
+      },
+      "global": {
+        "title": "Ilaalcha Addunyaa",
+        "description": "Garaagarummaa kabajuu fi hirmaachisummaa guddisuu."
+      }
+    },
+    "impact": {
+      "title": "Bu’aa keenya bara 2005 E.C hanga 2018 E.C",
+      "subtitle": "Sagantaalee fi hojiiwwan keenyaatiin jijjiirama guddaa fideerra.",
+      "members": "500+",
+      "membersLabel": "Miseensota socho'an",
+      "events": "20+",
+      "eventsLabel": "Taateewwan",
+      "years": "12+",
+      "yearsLabel": "Waggaa"
+    },
+    "cta": {
+      "title": "Imala keenya keessatti hirmaadhaa",
+      "description": "Jijjiirama hiika qabu uumuuf nu waliin ta’aa.",
+      "getStarted": "Jalqabi",
+      "joinTelegram": "Telegramitti makami",
+      "footer": "Har'uma GDASAO'tti makami"
+    }
+  },
+  "resources": {
+    "title": "Qabeenya GDASAO qoradhaa",
+    "description": "Miseensotaaf odeeffannoo fi qabeenya barbaachisaa argadhaa",
+    "membersButton": "Miseensota"
+  },
+  "members": {
+    "title": "Miseensota Keenya keessaa muraasa",
+    "description": "Namoota GDASAO jabeessaniin wal baraa. Godinoota Oromiyaa garaagaraa irraa dhufanii aadaa isaanii tikfachaa jiru.",
+    "viewProfile": "Piroofaayilii ilaali",
+    "imageNotAvailable": "Suura hin jiru",
+    "memberAlt": "Suura miseensaa",
+    "anonymousMember": "Miseensa GDASAO",
+    "cta": {
+      "title": "Isin maal eegdu, har'uma miseensa ta'uuf galmaa'aa",
+      "description": "Miseensa ta’uun Gumii Dagaagina Aadaa, Seenaa fi Afaan Oromoo jajjabeessuuf nu waliin hirmaadhaa",
+      "registerButton": "Amma galmaa'i",
+      "learnMoreButton": "Dabalataan baradhu",
+      "footer": " Har'uma GDASAO'tti makami"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Nu Qunnamaa",
+      "description": "Gaaffii qabduu? Nu qunnamaa. Ergaa nuuf ergaa deebii isiniif kennina."
+    },
+    "contactInfo": {
+      "email": {
+        "title": "Imeelii nuuf ergaa"
+      },
+      "phone": {
+        "title": "Bilbilaan nu qunnamaa"
+      },
+      "hours": {
+        "title": "Sa’aatii hojii",
+        "days": "Wiixata - Jimaata",
+        "time": "Ganama 2:00 - waaree booda 11:00"
+      },
+      "social": {
+        "title": "Miidiyaa hawaasaa"
+      }
+    },
+    "location": {
+      "title": "Iddoo keenya",
+      "address": "Gamoo Kilinika JIT darbii 1ffaa, Kaampaasii JIT, Jimma, Oromiyaa, Itoophiyaa"
+    },
+    "form": {
+      "title": "Ergaa ergi",
+      "namePlaceholder": "Maqaa guutuu",
+      "emailPlaceholder": "Imeelii",
+      "messagePlaceholder": "Ergaa",
+      "submitButton": "Ergaa ergi",
+      "emailSubject": "Ergaa quunnamtii irraa",
+      "nameLabel": "Maqaa",
+      "emailLabel": "Imeelii",
+      "messageLabel": "Ergaa"
+    },
+    "popup": {
+      "title": "Imeelii qophaa'eera!",
+      "message": "Mee app imeelii keessan keessatti ergaa."
+    }
+  },
+  "register": {
+    "title": "Har'uma miseensa ta'uuf galmaa'i",
+    "subtitle": "GDASAO Inistiitiyuutii Teeknooloojii Jimmaa",
+    "labels": {
+      "fullName": "Maqaa guutuu",
+      "email": "Teessoo imeelii",
+      "gender": "Saala",
+      "batch": "Waggaa meeqaffaa",
+      "zone": "Godina",
+      "woreda": "Aanaa",
+      "telegram": "Telegram",
+      "phone": "Bilbila",
+      "talent": "Dandeettii",
+      "comment": "Yaada dabalataa",
+      "selected": "Filatame"
+    },
+    "placeholders": {
+      "fullName": "Maqaa keessan galchaa",
+      "email": "gdasao@email.com",
+      "woreda": "Aanaa galchaa",
+      "telegram": "@username",
+      "phone": "09XXXXXXXX",
+      "comment": "Yaada keessan asitti barreessaa..."
+    },
+    "options": {
+      "selectGender": "Saala filadhaa",
+      "male": "Dhiira",
+      "female": "Dubartii",
+      "selectBatch": "Waggaa barattu filadhau",
+      "selectZone": "Godina filadhaa"
+    },
+    "errors": {
+      "fullNameRequired": "Maqaan guutuu barbaachisaadha",
+      "emailRequired": "Imeeliin barbaachisaadha",
+      "emailInvalid": "Imeeliin sirrii miti",
+      "genderRequired": "Mee saala filadhaa",
+      "batchRequired": "Mee baatchii filadhaa",
+      "zoneRequired": "Mee godina filadhaa",
+      "woredaRequired": "Aanaan barbaachisaadha",
+      "talentRequired": "Mee dandeettii tokko filadhaa"
+    },
+    "messages": {
+      "success": "Galmeen milkaa'eera! Baga gara GDASAO dhuftan!",
+      "error": "❌ Galmeen hin milkoofne. Irra deebi'aa yaalaa.",
+      "networkError": "❌ Rakkoo networkii. Mee irra deebi'aa yaalaa."
+    },
+    "button": {
+      "submit": "Galmaa'i",
+      "submitting": "Ergaa jira..."
+    }
+  }
+}

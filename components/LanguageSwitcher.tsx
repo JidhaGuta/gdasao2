@@ -1,37 +1,34 @@
-// // components/LanguageSwitcher.tsx
-// "use client";
+"use client";
 
-// import { useLanguage } from "@/contexts/LanguageContext";
+import { usePathname, useRouter } from "@/i18n/routing";
+import { useLocale } from "next-intl";
 
-// export default function LanguageSwitcher() {
-//   const { language, setLanguage } = useLanguage();
+export default function LanguageSwitcher() {
+  const pathname = usePathname();
+  const router = useRouter();
+  const currentLocale = useLocale();
+  const languages = [
+    { code: "en", name: "English", native: "English" },
+    { code: "om", name: "Afan Oromo", native: "Afaan Oromoo" },
+  ];
 
-//   const languages = [
-//     { code: "en", name: "English", flag: "🇬🇧" },
-//     { code: "ao", name: "Afaan Oromoo", flag: "🇪🇹" },
-//     { code: "am", name: "አማርኛ", flag: "🇪🇹" },
-//   ] as const;
+  const handleLanguageChange = (locale: string) => {
+    router.push(pathname, { locale });
+  };
 
-//   return (
-//     <div className="flex gap-2 bg-white/10 backdrop-blur-sm rounded-lg p-1">
-//       {languages.map((lang) => (
-//         <button
-//           key={lang.code}
-//           onClick={() => setLanguage(lang.code)}
-//           className={`
-//             px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200
-//             flex items-center gap-1.5
-//             ${
-//               language === lang.code
-//                 ? "bg-white text-indigo-600 shadow-md"
-//                 : "text-gray-700 hover:bg-white/20"
-//             }
-//           `}
-//         >
-//           <span>{lang.flag}</span>
-//           <span className="hidden sm:inline">{lang.name}</span>
-//         </button>
-//       ))}
-//     </div>
-//   );
-// }
+  return (
+    <div className="relative">
+      <select
+        value={currentLocale}
+        onChange={(e) => handleLanguageChange(e.target.value)}
+        className="px-3 py-2 rounded-md border border-gray-300 bg-white dark:bg-gray-800 dark:border-gray-600 cursor-pointer"
+      >
+        {languages.map((lang) => (
+          <option key={lang.code} value={lang.code}>
+            {lang.native}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}

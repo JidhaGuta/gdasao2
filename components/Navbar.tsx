@@ -2,20 +2,39 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
 
-  // const { lang, setLang } = useLanguage();
+  const t = useTranslations("nav");
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const languages = [
+    { code: "om", name: "Afaan Oromoo", native: "Afaan Oromoo" },
+    { code: "en", name: "English", native: "English" },
+  ];
+
+  const switchLanguage = (newLocale: string) => {
+    // Get the current path without the locale
+    const newPathname = pathname.replace(`/${locale}`, "") || "/";
+    router.push(`/${newLocale}${newPathname}`);
+    setIsLangOpen(false);
+  };
 
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-xl bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 border-b border-white/10 shadow-2xl">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/">
+        <Link href={`/${locale}`}>
           <div className="flex items-center gap-2 cursor-pointer group">
             <Image
               src="/logo.png"
@@ -30,31 +49,67 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* 🌍 Language Switcher (DESKTOP)
-        <select
-          value={lang}
-          onChange={(e) => setLang(e.target.value as "en" | "om" | "am")}
-          className="ml-3 px-3 py-2 rounded-lg border border-white/20 text-sm bg-slate-800/50 backdrop-blur-sm text-gray-200 hover:bg-slate-700/50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
-        >
-          <option value="en">EN</option>
-          <option value="om">OM</option>
-          <option value="am">AM</option>
-        </select> */}
-
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-3 font-semibold">
+          {/* Language Switcher - Before Home */}
+          <div className="relative">
+            <button
+              onClick={() => setIsLangOpen(!isLangOpen)}
+              className="px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300 inline-flex items-center gap-2"
+            >
+              <Globe size={18} />
+              <span>{languages.find((l) => l.code === locale)?.flag}</span>
+              <span className="text-sm">{locale === "en" ? "EN" : "OM"}</span>
+              <svg
+                className={`w-4 h-4 transition-transform ${
+                  isLangOpen ? "rotate-180" : ""
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+
+            {isLangOpen && (
+              <div className="absolute left-0 top-full mt-2 bg-slate-800/95 backdrop-blur-md rounded-xl shadow-2xl min-w-[160px] border border-white/20 z-50 overflow-hidden">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => switchLanguage(lang.code)}
+                    className={`w-full text-left px-5 py-3 text-gray-200 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-200 flex items-center gap-2 ${
+                      locale === lang.code ? "bg-purple-500/20 text-white" : ""
+                    }`}
+                  >
+                    <span>{lang.flag}</span>
+                    <span>{lang.native}</span>
+                    {locale === lang.code && (
+                      <span className="ml-auto text-purple-400">✓</span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
           <Link
-            href="/"
+            href={`/${locale}`}
             className="px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300"
           >
-            Home
+            {t("home")}
           </Link>
 
           <Link
-            href="/about"
+            href={`/${locale}/about`}
             className="px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300"
           >
-            About
+            {t("about")}
           </Link>
 
           {/* Dropdown */}
@@ -63,7 +118,7 @@ export default function Navbar() {
               onClick={() => setOpenDropdown(!openDropdown)}
               className="px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300 inline-flex items-center gap-1"
             >
-              Resources
+              {t("resources")}
               <svg
                 className={`w-4 h-4 transition-transform ${
                   openDropdown ? "rotate-180" : ""
@@ -84,33 +139,26 @@ export default function Navbar() {
             {openDropdown && (
               <div className="absolute left-0 top-full mt-2 bg-slate-800/95 backdrop-blur-md rounded-xl shadow-2xl min-w-[200px] border border-white/20 z-50 overflow-hidden">
                 <Link
-                  href="/resources/members"
+                  href={`/${locale}/resources/members`}
                   onClick={() => setOpenDropdown(false)}
                   className="block px-5 py-3 text-gray-200 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-200"
                 >
-                  Members
+                  {t("members")}
                 </Link>
-                {/* <Link
-                  href="/resources/gootota"
-                  onClick={() => setOpenDropdown(false)}
-                  className="block px-5 py-3 text-gray-200 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-200 border-t border-white/10"
-                >
-                  Gootota Oromoo
-                </Link> */}
               </div>
             )}
           </div>
 
           <Link
-            href="/contact"
+            href={`/${locale}/contact`}
             className="px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300"
           >
-            Contact
+            {t("contact")}
           </Link>
 
-          <Link href="/register">
+          <Link href={`/${locale}/register`}>
             <button className="px-6 py-2 rounded-xl text-white font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
-              Register
+              {t("register")}
             </button>
           </Link>
         </div>
@@ -128,67 +176,80 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden bg-gradient-to-b from-slate-900 to-purple-900 border-t border-white/10">
           <div className="flex flex-col px-6 py-4 space-y-2">
+            {/* Language Switcher - First in mobile */}
+            <div className="mb-2">
+              <div className="px-4 py-2 text-gray-300 font-medium flex items-center gap-2">
+                <Globe size={18} />
+                <span>Select Language</span>
+              </div>
+              <div className="grid grid-cols-2 gap-2 mt-1">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      switchLanguage(lang.code);
+                      setIsMenuOpen(false);
+                    }}
+                    className={`px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2 ${
+                      locale === lang.code
+                        ? "bg-purple-500/30 ring-1 ring-purple-500"
+                        : ""
+                    }`}
+                  >
+                    <span>{lang.flag}</span>
+                    <span>{lang.native}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="border-t border-white/10 my-2"></div>
+
             <Link
-              href="/"
+              href={`/${locale}`}
               onClick={() => setIsMenuOpen(false)}
               className="px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300"
             >
-              Home
+              {t("home")}
             </Link>
 
             <Link
-              href="/about"
+              href={`/${locale}/about`}
               onClick={() => setIsMenuOpen(false)}
               className="px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300"
             >
-              About
+              {t("about")}
             </Link>
 
-            {/* Resources */}
             <div>
               <div className="px-4 py-2 text-gray-300 font-medium">
-                Resources
+                {t("resources")}
               </div>
               <Link
-                href="/resources/members"
+                href={`/${locale}/resources/members`}
                 onClick={() => setIsMenuOpen(false)}
                 className="block px-6 py-2 text-gray-200 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300"
               >
-                Members
-              </Link>
-              <Link
-                href="/resources/gootota"
-                onClick={() => setIsMenuOpen(false)}
-                className="block px-6 py-2 text-gray-200 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300"
-              >
-                Gootota Oromoo
+                {t("members")}
               </Link>
             </div>
 
             <Link
-              href="/contact"
+              href={`/${locale}/contact`}
               onClick={() => setIsMenuOpen(false)}
               className="px-4 py-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300"
             >
-              Contact
+              {t("contact")}
             </Link>
 
-            <Link href="/register" onClick={() => setIsMenuOpen(false)}>
+            <Link
+              href={`/${locale}/register`}
+              onClick={() => setIsMenuOpen(false)}
+            >
               <button className="w-full px-6 py-2 rounded-xl text-white font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 transition-all duration-300">
-                Register
+                {t("register")}
               </button>
             </Link>
-
-            {/* 🌍 Language Switcher (MOBILE) */}
-            {/* <select
-              value={lang}
-              onChange={(e) => setLang(e.target.value as "en" | "om" | "am")}
-              className="mt-3 px-4 py-2 border border-white/20 rounded-xl bg-slate-800/50 backdrop-blur-sm text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
-            >
-              <option value="en">English</option>
-              <option value="om">Afaan Oromo</option>
-              <option value="am">Amharic</option>
-            </select> */}
           </div>
         </div>
       )}

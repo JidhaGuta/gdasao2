@@ -11,8 +11,11 @@ import {
   User,
   Clock,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function ContactPage() {
+  const t = useTranslations("contact");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -33,11 +36,11 @@ export default function ContactPage() {
 
     const { name, email, message } = formData;
 
-    const subject = `Contact Form Submission from ${name}`;
-    const body = `Name: ${name}
-Email: ${email}
+    const subject = `${t("form.emailSubject")} ${name}`;
+    const body = `${t("form.nameLabel")}: ${name}
+${t("form.emailLabel")}: ${email}
 
-Message:
+${t("form.messageLabel")}:
 ${message}`;
 
     const mailtoUrl = `mailto:gdasaojujitcampus@gmail.com?subject=${encodeURIComponent(
@@ -70,11 +73,10 @@ ${message}`;
       {/* HERO */}
       <section className="text-center py-24 px-6">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-transparent bg-clip-text">
-          Contact Us
+          {t("hero.title")}
         </h1>
         <p className="max-w-2xl mx-auto text-lg text-gray-600">
-          Have questions? We'd love to hear from you. Send us a message and
-          we'll respond as soon as possible.
+          {t("hero.description")}
         </p>
       </section>
 
@@ -89,7 +91,9 @@ ${message}`;
                 <div className="w-12 h-12 mx-auto bg-gradient-to-r from-indigo-500 to-pink-500 rounded-xl flex items-center justify-center mb-3">
                   <Mail className="text-white" size={20} />
                 </div>
-                <h3 className="font-semibold">Email Us</h3>
+                <h3 className="font-semibold">
+                  {t("contactInfo.email.title")}
+                </h3>
                 <p className="text-sm text-gray-600">
                   gdasaojujitcampus@gmail.com
                 </p>
@@ -100,7 +104,9 @@ ${message}`;
                 <div className="w-12 h-12 mx-auto bg-gradient-to-r from-indigo-500 to-pink-500 rounded-xl flex items-center justify-center mb-3">
                   <Phone className="text-white" size={20} />
                 </div>
-                <h3 className="font-semibold">Call Us</h3>
+                <h3 className="font-semibold">
+                  {t("contactInfo.phone.title")}
+                </h3>
                 <p className="text-sm text-gray-600">+251 951 220 757</p>
               </div>
 
@@ -109,9 +115,15 @@ ${message}`;
                 <div className="w-12 h-12 mx-auto bg-gradient-to-r from-indigo-500 to-pink-500 rounded-xl flex items-center justify-center mb-3">
                   <Clock className="text-white" size={20} />
                 </div>
-                <h3 className="font-semibold">Office Hours</h3>
-                <p className="text-sm text-gray-600">Mon - Fri</p>
-                <p className="text-sm text-gray-600">8AM - 5PM</p>
+                <h3 className="font-semibold">
+                  {t("contactInfo.hours.title")}
+                </h3>
+                <p className="text-sm text-gray-600">
+                  {t("contactInfo.hours.days")}
+                </p>
+                <p className="text-sm text-gray-600">
+                  {t("contactInfo.hours.time")}
+                </p>
               </div>
 
               {/* Social */}
@@ -119,7 +131,9 @@ ${message}`;
                 <div className="w-12 h-12 mx-auto bg-gradient-to-r from-indigo-500 to-pink-500 rounded-xl flex items-center justify-center mb-3">
                   <MessageSquare className="text-white" size={20} />
                 </div>
-                <h3 className="font-semibold">Social</h3>
+                <h3 className="font-semibold">
+                  {t("contactInfo.social.title")}
+                </h3>
                 <p className="text-sm text-gray-600">
                   @https://t.me/gdasaoJIT2025
                 </p>
@@ -130,18 +144,15 @@ ${message}`;
             <div className="bg-white/70 backdrop-blur rounded-2xl shadow-lg p-6">
               <div className="flex items-center gap-3 mb-4">
                 <MapPin className="text-indigo-600" />
-                <h2 className="text-xl font-bold">Our Location</h2>
+                <h2 className="text-xl font-bold">{t("location.title")}</h2>
               </div>
-              <p className="text-gray-600">
-                JIT Clinic building 1st floor, JIT Campus, Jimma, Oromia,
-                Ethiopia
-              </p>
+              <p className="text-gray-600">{t("location.address")}</p>
             </div>
           </div>
 
           {/* RIGHT SIDE FORM */}
           <div className="bg-white/70 backdrop-blur rounded-2xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold mb-6">Send Message</h2>
+            <h2 className="text-2xl font-bold mb-6">{t("form.title")}</h2>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <input
@@ -149,7 +160,7 @@ ${message}`;
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Full Name"
+                placeholder={t("form.namePlaceholder")}
                 className="p-3 rounded-xl border"
                 required
               />
@@ -159,7 +170,7 @@ ${message}`;
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Email"
+                placeholder={t("form.emailPlaceholder")}
                 className="p-3 rounded-xl border"
                 required
               />
@@ -168,7 +179,7 @@ ${message}`;
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Message"
+                placeholder={t("form.messagePlaceholder")}
                 rows={5}
                 className="p-3 rounded-xl border"
                 required
@@ -176,10 +187,10 @@ ${message}`;
 
               <button
                 type="submit"
-                className="bg-gradient-to-r from-indigo-600 to-pink-600 text-white py-3 rounded-xl flex items-center justify-center gap-2"
+                className="bg-gradient-to-r from-indigo-600 to-pink-600 text-white py-3 rounded-xl flex items-center justify-center gap-2 hover:scale-105 transition-all duration-300"
               >
                 <Send size={18} />
-                Send Message
+                {t("form.submitButton")}
               </button>
             </form>
           </div>
@@ -188,13 +199,30 @@ ${message}`;
 
       {/* SUCCESS POPUP */}
       {showSuccess && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 animate-fade-in-up">
           <div className="bg-green-600 text-white px-6 py-3 rounded-xl shadow-lg">
-            <p className="font-semibold">Email Ready!</p>
-            <p className="text-sm">Please click send in your email app.</p>
+            <p className="font-semibold">{t("popup.title")}</p>
+            <p className="text-sm">{t("popup.message")}</p>
           </div>
         </div>
       )}
+
+      {/* Add custom animations */}
+      <style jsx>{`
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 0.3s ease-out forwards;
+        }
+      `}</style>
     </div>
   );
 }

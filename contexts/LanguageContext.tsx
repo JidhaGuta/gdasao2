@@ -1,61 +1,75 @@
-// // context/LanguageContext.tsx
-// "use client";
+"use client";
 
-// import React, { createContext, useContext, useState, useEffect } from "react";
-// import { Language, Translation, translations } from "@/lib/translations";
+import {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
 
-// interface LanguageContextType {
-//   language: Language;
-//   setLanguage: (lang: Language) => void;
-//   t: Translation;
-// }
+type Language = "en" | "om";
 
-// const LanguageContext = createContext<LanguageContextType | undefined>(
-//   undefined,
-// );
+type Translations = {
+  [key: string]: {
+    en: string;
+    om: string;
+  };
+};
 
-// export function LanguageProvider({ children }: { children: React.ReactNode }) {
-//   const [language, setLanguage] = useState<Language>("en");
+const translations: Translations = {
+  "nav.home": { en: "Home", om: "Mana" },
+  "nav.about": { en: "About", om: "Waaʼee" },
+  "nav.contact": { en: "Contact", om: "Quunnamti" },
+  "nav.register": { en: "Register", om: "Galmeessi" },
+  "nav.resources": { en: "Resources", om: "Qabeenya" },
+  "nav.members": { en: "Members", om: "Miseensonni" },
+};
 
-//   useEffect(() => {
-//     // Load saved language from localStorage
-//     const savedLang = localStorage.getItem("language") as Language;
-//     if (savedLang && ["en", "ao", "am"].includes(savedLang)) {
-//       setLanguage(savedLang);
-//     }
-//   }, []);
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+}
 
-//   const handleSetLanguage = (lang: Language) => {
-//     setLanguage(lang);
-//     localStorage.setItem("language", lang);
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined,
+);
 
-//     // Update HTML lang attribute for SEO
-//     document.documentElement.lang =
-//       lang === "en" ? "en" : lang === "ao" ? "om" : "am";
+export function LanguageProvider({ children }: { children: ReactNode }) {
+  const [language, setLanguage] = useState<Language>("en");
 
-//     // For Amharic, set text direction if needed (RTL)
-//     if (lang === "am") {
-//       document.documentElement.dir = "ltr"; // Amharic is LTR
-//     } else {
-//       document.documentElement.dir = "ltr";
-//     }
-//   };
+  // Load saved language from localStorage on mount
+  useEffect(() => {
+    const savedLang = localStorage.getItem("language") as Language;
+    if (savedLang && (savedLang === "en" || savedLang === "om")) {
+      setLanguage(savedLang);
+    }
+  }, []);
 
-//   const t = translations[language];
+  // Save language to localStorage when changed
+  const handleSetLanguage = (lang: Language) => {
+    setLanguage(lang);
+    localStorage.setItem("language", lang);
+  };
 
-//   return (
-//     <LanguageContext.Provider
-//       value={{ language, setLanguage: handleSetLanguage, t }}
-//     >
-//       {children}
-//     </LanguageContext.Provider>
-//   );
-// }
+  const t = (key: string): string => {
+    return translations[key]?.[language] || key;
+  };
 
-// export function useLanguage() {
-//   const context = useContext(LanguageContext);
-//   if (context === undefined) {
-//     throw new Error("useLanguage must be used within a LanguageProvider");
-//   }
-//   return context;
-// }
+  return (
+    <LanguageContext.Provider
+      value={{ language, setLanguage: handleSetLanguage, t }}
+    >
+      {children}
+    </LanguageContext.Provider>
+  );
+}
+
+export function useLanguage() {
+  const context = useContext(LanguageContext);
+  if (context === undefined) {
+    throw new Error("useLanguage must be used within a LanguageProvider");
+  }
+  return context;
+}
