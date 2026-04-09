@@ -9,8 +9,8 @@ export default function LanguageSwitcher() {
   const currentLocale = useLocale();
 
   const languages = [
-    { code: "en", name: "English", native: "English" },
-    { code: "om", name: "Afan Oromo", native: "Afaan Oromoo" },
+    { code: "en", name: "English", native: "English", flag: "🇺🇸" },
+    { code: "om", name: "Afan Oromo", native: "Afaan Oromoo", flag: "🇪🇹" },
   ];
 
   const handleLanguageChange = (locale: string) => {
